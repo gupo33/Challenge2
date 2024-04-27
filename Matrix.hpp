@@ -10,10 +10,11 @@ namespace algebra{
 
     template <typename T, StorageOrder stor> class Matrix{
     public:
-        Matrix(std::size_t size):size(size){};
+        Matrix(std::size_t row_size, std::size_t col_size):row_size(row_size),col_size(col_size){};
 
         std::map<std::array<std::size_t,2>,T> data;
-        std::size_t size;
+        std::size_t row_size;
+        std::size_t col_size;
 
         std::vector<T> val;
         std::vector<std::size_t> col_idx;
@@ -22,7 +23,7 @@ namespace algebra{
         T& operator()(std::size_t i, std::size_t j);
         T operator()(std::size_t i, std::size_t j) const;
 
-        void resize(std::size_t newsize);
+        void resize(std::size_t row_newsize, std::size_t col_newsize);
 
         void compress();
         void uncompress();
@@ -55,8 +56,8 @@ namespace algebra{
 
     template<typename T, StorageOrder stor> std::ostream& operator<<(std::ostream& str, const Matrix<T,stor>& mat){
         if(!mat.is_compressed()){
-            for(std::size_t i = 0; i<mat.size;++i){
-                for(std::size_t j = 0; j<mat.size;++j){
+            for(std::size_t i = 0; i<mat.row_size;++i){
+                for(std::size_t j = 0; j<mat.col_size;++j){
                     str << mat(i,j) << " ";
                 }
                 str << std::endl;
@@ -85,12 +86,13 @@ namespace algebra{
 
     }
 
-    template<typename T, StorageOrder stor> void Matrix<T,stor>::resize(std::size_t newsize){
+    template<typename T, StorageOrder stor> void Matrix<T,stor>::resize(std::size_t row_newsize, std::size_t col_newsize){
         if(!is_compressed()){
-            if(newsize < size){
-                for(std::size_t i = 0; i<size; ++i){
-                    for(std::size_t j = 0; j<size; ++j){
-                        if(i+j >= newsize){
+            //TODO: there must be a better way to do this
+            if(row_newsize < row_size || col_newsize < col_size){
+                for(std::size_t i = 0; i<row_size; ++i){
+                    for(std::size_t j = 0; j<col_size; ++j){
+                        if(i >= row_newsize || j >= col_newsize){
                             data.erase({i,j});
                             #ifdef DEBUG
                             std::cout << "erased element " << i << "," <<j << std::endl;
@@ -99,17 +101,18 @@ namespace algebra{
                     }
                 }
             }
-            size = newsize;
+            row_size = row_newsize;
+            col_size = col_newsize;
         }
     }
 
     template<typename T, StorageOrder stor> void Matrix<T,stor>::compress(){
         if(!is_compressed()){
             row_idx.push_back(0);
-            //this is so bad
-            for(std::size_t i = 0; i<size;++i){
+            //TODO: this is so bad
+            for(std::size_t i = 0; i<row_size;++i){
                 std::size_t nnz_count = 0;
-                for(std::size_t j = 0; j<size;++j){
+                for(std::size_t j = 0; j<col_size;++j){
                     if(this->operator()(i,j)!=0){
                         val.push_back(this->operator()(i,j));
                         col_idx.push_back(j);
