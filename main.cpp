@@ -7,18 +7,28 @@ int main(){
 
     std::cout << mat << std::endl;
 
-    mat.resize(4);
+    mat(0,0) = 1;
+    mat(0,1) = 2;
+    mat(2,2) = 3;
 
     std::cout << mat << std::endl;
 
-    mat(3,3) = 4;
+    std::cout << mat.is_compressed() << std::endl;
+
+    mat.compress();
+
+    std::cout << mat.is_compressed() << std::endl;
 
     std::cout << mat << std::endl;
 
-    mat.resize(3);
+    mat.uncompress();
 
     std::cout << mat << std::endl;
 
-    std::cout << mat(3,3);
+    std::cout << mat.is_compressed();
+
+    mat.compress();
+
+    std::cout << mat << std::endl;
 
 }
