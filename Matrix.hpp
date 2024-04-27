@@ -40,6 +40,9 @@ namespace algebra{
             return it->second;
         }
         else{
+            if(i>=row_size || j>=col_size){ //resize the matrix if out of bounds
+                resize(std::max(row_size,i+1),std::max(col_size,j+1));
+            }
             return data[{i,j}];
         }
     }
