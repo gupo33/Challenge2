@@ -3,23 +3,23 @@
 using namespace algebra;
 
 int main(){
-    Matrix<double,Row> mat = Matrix<double,Row>(3,3);
+    Matrix<int,Row> mat(3,3);
 
     std::cout << mat << std::endl;
 
-    mat.resize(5,2);
+    mat(0,0) = 0;
+    mat(1,1) = 2;
+    mat(2,2) = 3;
 
-    std::cout << mat << std::endl;
+    mat.compress();
 
-    mat(0,0) = 1.5;
-    mat(1,1) = 2.3;
-    mat(3,1) = 5.4;
-    mat(4,0) = 4.1;
+    std::vector<int> rhs{1,2,3};
 
-    std::cout << mat << std::endl;
+    std::vector<int> res = mat*rhs;
 
-    mat(5,5) = 7.3;
+    for(auto i : res){
+        std::cout << i << " ";
+    }
 
-    std::cout << mat << std::endl;
 
 }

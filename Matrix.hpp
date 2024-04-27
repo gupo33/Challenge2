@@ -155,4 +155,33 @@ namespace algebra{
             row_idx.clear();
         }
     }
+
+    template<typename T, StorageOrder stor> std::vector<T> operator*(const Matrix<T,stor>& lhs, const std::vector<T>& rhs){
+        //assuming that the dimensions make sense...
+        std::vector<T> result;
+        result.resize(lhs.col_size);
+        if(!lhs.is_compressed()){
+            for(std::size_t i = 0; i<lhs.row_size; ++i){
+                for(std::size_t j = 0; j<lhs.col_size; ++j){
+                    result[i] += lhs(i,j)*rhs[j];   
+                }
+            }
+        }
+        else{
+            int j=0;//row index for the matrix
+            int i=0; //index for the vector of values
+            int nnz_count = 0; //counts the non-zero elements currently inserted in the matrix
+            while(i<lhs.val.size()){
+                if(nnz_count >= lhs.row_idx[j+1]){ //if a row is filled, move to the next row
+                    j++; 
+                }
+                else{ //otherwise, fill the row
+                    result[j]+=lhs.val[i]*rhs[lhs.col_idx[i]];
+                    nnz_count++;
+                    i++;
+                }
+            }
+        }
+        return(result);
+    }
 }
