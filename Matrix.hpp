@@ -14,9 +14,7 @@ namespace algebra{
         std::size_t size;
         T& operator()(std::size_t i, std::size_t j);
         T operator()(std::size_t i, std::size_t j) const;
-        void compress();
-        void uncompress();
-        bool is_compressed() const;
+        void resize(std::size_t newsize);
 
     };
 
@@ -55,4 +53,17 @@ namespace algebra{
 
     }
 
+    template<typename T, StorageOrder stor> void Matrix<T,stor>::resize(std::size_t newsize){
+        if(newsize < size){
+            for(std::size_t i = 0; i<size; ++i){
+                for(std::size_t j = 0; j<size; ++j){
+                    if(i+j >= newsize){
+                        data.erase({i,j});
+
+                    }
+                }
+            }
+        }
+        size = newsize;
+    }
 }
