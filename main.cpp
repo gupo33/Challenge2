@@ -11,7 +11,7 @@ int main(){
 
     std::cout << mat << std::endl;
 
-    mat.resize(2,2);
+    mat.compress();
 
     std::cout << mat << std::endl;
 

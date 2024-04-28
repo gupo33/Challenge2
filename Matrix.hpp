@@ -116,22 +116,34 @@ namespace algebra{
     }
 
     template<typename T, StorageOrder stor> void Matrix<T,stor>::compress(){
+        #ifdef DEBUG
+            std::cout << "started compressing" << std::endl;
+        #endif
+
+        //initialize vectors
+        row_idx.resize(col_size+1);
+
         if(!is_compressed()){
-            row_idx.push_back(0);
-            //TODO: this is so bad
-            for(std::size_t i = 0; i<row_size;++i){
-                std::size_t nnz_count = 0;
-                for(std::size_t j = 0; j<col_size;++j){
-                    if(this->operator()(i,j)!=0){
-                        val.push_back(this->operator()(i,j));
-                        col_idx.push_back(j);
-                        nnz_count++;
+           for(std::size_t i = 0; i<row_size;++i){
+
+                row_idx[i+1]+=row_idx[i];
+
+                for(auto elem = data.lower_bound({i,0}); elem!= data.upper_bound({i,col_size}); ++elem){
+                    if(elem->second!=0){
+                        val.push_back(elem->second);
+                        col_idx.push_back(elem->first[1]);
+                        row_idx[i+1]++;
+                        #ifdef DEBUG
+                            std::cout << "inserted element in position " << i <<","<<elem->first[1] <<std::endl;
+                        #endif
                     }
                 }
-                row_idx.push_back(nnz_count + row_idx.back());
-            }
+           }
             data.clear();
         }
+        #ifdef DEBUG
+            std::cout << "finished compressing" << std::endl;
+        #endif
     }
 
     template<typename T, StorageOrder stor> bool Matrix<T,stor>::is_compressed() const{
