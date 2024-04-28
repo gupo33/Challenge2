@@ -90,22 +90,28 @@ namespace algebra{
     }
 
     template<typename T, StorageOrder stor> void Matrix<T,stor>::resize(std::size_t row_newsize, std::size_t col_newsize){
+        #ifdef DEBUG
+            std::cout << "started resizing" << std::endl;
+        #endif
         if(!is_compressed()){
-            //TODO: there must be a better way to do this
             if(row_newsize < row_size || col_newsize < col_size){
-                for(std::size_t i = 0; i<row_size; ++i){
-                    for(std::size_t j = 0; j<col_size; ++j){
-                        if(i >= row_newsize || j >= col_newsize){
-                            data.erase({i,j});
-                            #ifdef DEBUG
-                            std::cout << "erased element " << i << "," <<j << std::endl;
-                            #endif
-                        }
+                for(auto elem = data.begin(); elem != data.end();){
+                    if(elem->first[0] >= row_newsize || elem->first[1] >= col_newsize){
+                        #ifdef DEBUG
+                            std::cout << "erased element in position" << elem->first[0] << "," << elem->first[1] << std::endl;
+                        #endif
+                        data.erase(elem++); //remove the element pointed by elem and move to the next one to keep the pointer valid
+                    }
+                    else{
+                        elem++;
                     }
                 }
             }
             row_size = row_newsize;
             col_size = col_newsize;
+            #ifdef DEBUG
+                std::cout << "finished resizing" << std::endl;
+            #endif
         }
     }
 

@@ -5,21 +5,14 @@ using namespace algebra;
 int main(){
     Matrix<int,Row> mat(3,3);
 
+    mat(2,2) = 1;
+    mat(1,2) = 1;
+    mat(2,1) = 1;
+
     std::cout << mat << std::endl;
 
-    mat(0,0) = 0;
-    mat(1,1) = 2;
-    mat(2,2) = 3;
+    mat.resize(2,2);
 
-    mat.compress();
-
-    std::vector<int> rhs{1,2,3};
-
-    std::vector<int> res = mat*rhs;
-
-    for(auto i : res){
-        std::cout << i << " ";
-    }
-
+    std::cout << mat << std::endl;
 
 }
