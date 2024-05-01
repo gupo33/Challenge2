@@ -2,10 +2,10 @@
 
 using namespace algebra;
 
-int main(){
+int main(int argc, const char* argv[]){
     Matrix<double,Row> mat;
 
-    mat.read("matTest.txt");
+    mat.read(argv[1]);
 
     std::cout << mat;
 
