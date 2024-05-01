@@ -136,7 +136,7 @@ namespace algebra{
         #endif
 
         //initialize vectors
-        col_idx.resize(num_row+1);
+        col_idx.resize(num_col+1);
 
         if(!is_compressed()){
            for(std::size_t i = 0; i<num_col;++i){
@@ -149,7 +149,22 @@ namespace algebra{
                         row_idx.push_back(elem->first[0]);
                         col_idx[i+1]++;
                         #ifdef DEBUG
-                            std::cout << "inserted element in position " << elem->first[0] <<","<<i <<std::endl;
+                            std::cout << "inserted element in position " << i <<","<<elem->first[1] <<std::endl;
+                            std::cout << "val: " << std::endl;
+                            for(auto v : val){
+                                std::cout << v << " ";
+                            }
+                            std::cout << std::endl;
+                            std::cout << "row_idx: " << std::endl;
+                            for(auto v : row_idx){
+                                std::cout << v << " ";
+                            }
+                            std::cout << std::endl;
+                            std::cout << "col_idx: " << std::endl;
+                            for(auto v : col_idx){
+                                std::cout << v << " ";
+                            }
+                            std::cout << std::endl;
                         #endif
                     }
                 }
