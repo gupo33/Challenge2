@@ -8,10 +8,16 @@ namespace algebra{
 
     enum StorageOrder {Row, Col};
 
-    template <typename T, StorageOrder stor> class Matrix{
-    public:
-        Matrix(std::size_t row_size, std::size_t col_size):row_size(row_size),col_size(col_size){};
+    //pre-declarations needed for template friends
 
+    template <typename T,StorageOrder stor> class Matrix;
+    template <typename T, StorageOrder stor> std::vector<T> operator*(const Matrix<T,stor>& lhs, const std::vector<T>& rhs);
+    template <typename T, StorageOrder stor> std::ostream& operator<<(std::ostream& str, const Matrix<T,stor>& mat);
+
+
+
+    template <typename T,StorageOrder stor> class Matrix{ 
+    private:
         std::map<std::array<std::size_t,2>,T> data;
         std::size_t row_size;
         std::size_t col_size;
@@ -19,6 +25,9 @@ namespace algebra{
         std::vector<T> val;
         std::vector<std::size_t> col_idx;
         std::vector<std::size_t> row_idx;
+
+    public:
+        Matrix(std::size_t row_size, std::size_t col_size):row_size(row_size),col_size(col_size){};
 
         T& operator()(std::size_t i, std::size_t j);
         T operator()(std::size_t i, std::size_t j) const;
@@ -29,9 +38,10 @@ namespace algebra{
         void uncompress();
         bool is_compressed() const;
 
-    };
+        friend std::ostream& operator<< <>(std::ostream& str, const Matrix<T,stor>& mat);
+        friend std::vector<T> operator* <>(const Matrix<T,stor>& lhs, const std::vector<T>& rhs);
 
-    template<typename T, StorageOrder stor> std::ostream& operator<<(std::ostream& str, const Matrix<T,stor>& mat);
+    };
 
 
     template<typename T, StorageOrder stor> T& Matrix<T,stor>::operator()(std::size_t i, std::size_t j){
