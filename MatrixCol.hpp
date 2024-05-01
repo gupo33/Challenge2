@@ -251,12 +251,12 @@ namespace algebra{
                 if(line[0]!='%'){ //skips initial comments
                     startFlag = true; //signals start of the data
                     std::istringstream line_stream(line);
-                    std::array<std::size_t,2> dims; //read the dimensions from the first line with numbers
-                    line_stream >> dims[0];
-                    line_stream >> dims[1];
-                    this->resize(dims[0],dims[1]);
+                    //read the dimensions from the first line with numbers
+                    line_stream >> i;
+                    line_stream >> j;
+                    this->resize(i,j); //resize the matrix accordingly
                     #ifdef DEBUG
-                        std::cout << "Dimensions: " <<dims[0]<<","<<dims[1]<<std::endl;
+                        std::cout << "Dimensions: " <<i<<","<<j<<std::endl;
                     #endif
                 }
             }
