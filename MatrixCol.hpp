@@ -47,6 +47,8 @@ namespace algebra{
         friend std::ostream& operator<< <>(std::ostream& str, const Matrix<T,Col>& mat);
         friend std::vector<T> operator* <>(const Matrix<T,Col>& lhs, const std::vector<T>& rhs);
 
+        void read(std::string filename);
+
     };
 
     template<typename T> T& Matrix<T,Col>::operator()(std::size_t i, std::size_t j){
@@ -230,6 +232,45 @@ namespace algebra{
             }
         }
         return(result);
+    }
+
+    template<typename T> void Matrix<T,Col>::read(std::string filename){
+
+        this->data.clear(); //clears what was contained previously in the matrix
+
+        std::ifstream file{filename}; //file stream
+        std::string line; //contains each parsed line
+        bool startFlag = false; //checks if the matrix data has been reached yet
+        std::size_t i,j;
+        T val;
+        while(file){
+
+            std::getline(file,line);
+
+            if(!startFlag){
+                if(line[0]!='%'){ //skips initial comments
+                    startFlag = true; //signals start of the data
+                    std::istringstream line_stream(line);
+                    std::array<std::size_t,2> dims; //read the dimensions from the first line with numbers
+                    line_stream >> dims[0];
+                    line_stream >> dims[1];
+                    this->resize(dims[0],dims[1]);
+                    #ifdef DEBUG
+                        std::cout << "Dimensions: " <<dims[0]<<","<<dims[1]<<std::endl;
+                    #endif
+                }
+            }
+            else{
+                std::istringstream line_stream(line); //reads each line and stores each element inside the matrix
+                #ifdef DEBUG
+                    std::cout << "Current line: " << line << std::endl;
+                #endif
+                line_stream >> i;
+                line_stream >> j;
+                line_stream >> val;
+                this->data[{i-1,j-1}] = val; //coordinates in matrix market format start from one
+            }
+        }
     }
 
 }
