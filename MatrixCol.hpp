@@ -25,15 +25,15 @@ namespace algebra{
     template <typename T> class Matrix<T,Col>{ 
     private:
         std::map<key,T,cmpCol> data;
-        std::size_t row_size;
-        std::size_t col_size;
+        std::size_t num_row;
+        std::size_t num_col;
 
         std::vector<T> val;
         std::vector<std::size_t> col_idx;
         std::vector<std::size_t> row_idx;
 
     public:
-        Matrix(std::size_t row_size, std::size_t col_size):row_size(row_size),col_size(col_size){};
+        Matrix(std::size_t num_row, std::size_t num_col):num_row(num_row),num_col(num_col){};
 
         T& operator()(std::size_t i, std::size_t j);
         T operator()(std::size_t i, std::size_t j) const;
@@ -55,8 +55,8 @@ namespace algebra{
             return it->second;
         }
         else{
-            if(i>=row_size || j>=col_size){ //resize the matrix if out of bounds
-                resize(std::max(row_size,i+1),std::max(col_size,j+1));
+            if(i>=num_row || j>=num_col){ //resize the matrix if out of bounds
+                resize(std::max(num_row,i+1),std::max(num_col,j+1));
             }
             return data[{i,j}];
         }
@@ -74,8 +74,8 @@ namespace algebra{
 
     template<typename T> std::ostream& operator<<(std::ostream& str, const Matrix<T,Col>& mat){
         if(!mat.is_compressed()){
-            for(std::size_t i = 0; i<mat.row_size;++i){
-                for(std::size_t j = 0; j<mat.col_size;++j){
+            for(std::size_t i = 0; i<mat.num_row;++i){
+                for(std::size_t j = 0; j<mat.num_col;++j){
                     str << mat(i,j) << " ";
                 }
                 str << std::endl;
@@ -109,7 +109,7 @@ namespace algebra{
             std::cout << "started resizing" << std::endl;
         #endif
         if(!is_compressed()){
-            if(row_newsize < row_size || col_newsize < col_size){
+            if(row_newsize < num_row || col_newsize < num_col){
                 for(auto elem = data.begin(); elem != data.end();){
                     if(elem->first[0] >= row_newsize || elem->first[1] >= col_newsize){
                         #ifdef DEBUG
@@ -122,8 +122,8 @@ namespace algebra{
                     }
                 }
             }
-            row_size = row_newsize;
-            col_size = col_newsize;
+            num_row = row_newsize;
+            num_col = col_newsize;
             #ifdef DEBUG
                 std::cout << "finished resizing" << std::endl;
             #endif
@@ -136,14 +136,14 @@ namespace algebra{
         #endif
 
         //initialize vectors
-        col_idx.resize(row_size+1);
+        col_idx.resize(num_row+1);
 
         if(!is_compressed()){
-           for(std::size_t i = 0; i<col_size;++i){
+           for(std::size_t i = 0; i<num_col;++i){
 
                 col_idx[i+1]+=col_idx[i];
 
-                for(auto elem = data.lower_bound({0,i}); elem!= data.upper_bound({row_size,i}); ++elem){
+                for(auto elem = data.lower_bound({0,i}); elem!= data.upper_bound({num_row,i}); ++elem){
                     if(elem->second!=0){
                         val.push_back(elem->second);
                         row_idx.push_back(elem->first[0]);
@@ -190,13 +190,12 @@ namespace algebra{
     }
 
     template<typename T> std::vector<T> operator*(const Matrix<T,Col>& lhs, const std::vector<T>& rhs){
-        //assuming that the dimensions make sense...
         std::vector<T> result;
-        result.resize(lhs.row_size);
+        result.resize(lhs.num_row);
         if(!lhs.is_compressed()){
-            for(std::size_t i = 0; i<lhs.col_size; ++i){
-                for(std::size_t j = 0; j<lhs.row_size; ++j){
-                    result[i] += lhs(j,i)*rhs[j];   
+            for(std::size_t i = 0; i<lhs.num_col; ++i){
+                for(std::size_t j = 0; j<lhs.num_row; ++j){
+                    result[j] += lhs(j,i)*rhs[i];   
                 }
             }
         }
@@ -209,7 +208,7 @@ namespace algebra{
                     j++; 
                 }
                 else{ //otherwise, fill the row
-                    result[j]+=lhs.val[i]*rhs[lhs.row_idx[i]];
+                    result[lhs.row_idx[i]]+=lhs.val[i]*rhs[j];
                     nnz_count++;
                     i++;
                 }

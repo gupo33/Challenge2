@@ -3,11 +3,12 @@
 using namespace algebra;
 
 int main(){
-    Matrix<int,Col> mat(3,3);
+    Matrix<int,Col> mat(4,3);
 
     mat(0,0) = 1;
+    mat(0,2) = 2;
     mat(1,1) = 2;
-    mat(2,2) = 3;
+    mat(3,2) = 3;
 
     std::vector<int> a{1,2,3};
 
@@ -15,10 +16,10 @@ int main(){
 
     mat.compress();
 
-    auto res = mat * a;
+    std::vector<int> out = mat*a;
 
-    for(auto i : res){
-        std::cout << i << std::endl;
+    for(auto v : out){
+        std::cout << v << " ";
     }
 
 }

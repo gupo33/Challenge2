@@ -21,15 +21,15 @@ namespace algebra{
     template <typename T,StorageOrder stor> class Matrix{ 
     private:
         std::map<key,T> data;
-        std::size_t row_size;
-        std::size_t col_size;
+        std::size_t num_row;
+        std::size_t num_col;
 
         std::vector<T> val;
         std::vector<std::size_t> col_idx;
         std::vector<std::size_t> row_idx;
 
     public:
-        Matrix(std::size_t row_size, std::size_t col_size):row_size(row_size),col_size(col_size){};
+        Matrix(std::size_t num_row, std::size_t num_col):num_row(num_row),num_col(num_col){};
 
         T& operator()(std::size_t i, std::size_t j);
         T operator()(std::size_t i, std::size_t j) const;
@@ -51,8 +51,8 @@ namespace algebra{
             return it->second;
         }
         else{
-            if(i>=row_size || j>=col_size){ //resize the matrix if out of bounds
-                resize(std::max(row_size,i+1),std::max(col_size,j+1));
+            if(i>=num_row || j>=num_col){ //resize the matrix if out of bounds
+                resize(std::max(num_row,i+1),std::max(num_col,j+1));
             }
             return data[{i,j}];
         }
@@ -70,8 +70,8 @@ namespace algebra{
 
     template<typename T, StorageOrder stor> std::ostream& operator<<(std::ostream& str, const Matrix<T,stor>& mat){
         if(!mat.is_compressed()){
-            for(std::size_t i = 0; i<mat.row_size;++i){
-                for(std::size_t j = 0; j<mat.col_size;++j){
+            for(std::size_t i = 0; i<mat.num_row;++i){
+                for(std::size_t j = 0; j<mat.num_col;++j){
                     str << mat(i,j) << " ";
                 }
                 str << std::endl;
@@ -105,7 +105,7 @@ namespace algebra{
             std::cout << "started resizing" << std::endl;
         #endif
         if(!is_compressed()){
-            if(row_newsize < row_size || col_newsize < col_size){
+            if(row_newsize < num_row || col_newsize < num_col){
                 for(auto elem = data.begin(); elem != data.end();){
                     if(elem->first[0] >= row_newsize || elem->first[1] >= col_newsize){
                         #ifdef DEBUG
@@ -118,8 +118,8 @@ namespace algebra{
                     }
                 }
             }
-            row_size = row_newsize;
-            col_size = col_newsize;
+            num_row = row_newsize;
+            num_col = col_newsize;
             #ifdef DEBUG
                 std::cout << "finished resizing" << std::endl;
             #endif
@@ -132,14 +132,14 @@ namespace algebra{
         #endif
 
         //initialize vectors
-        row_idx.resize(col_size+1);
+        row_idx.resize(num_col+1);
 
         if(!is_compressed()){
-           for(std::size_t i = 0; i<row_size;++i){
+           for(std::size_t i = 0; i<num_row;++i){
 
                 row_idx[i+1]+=row_idx[i];
 
-                for(auto elem = data.lower_bound({i,0}); elem!= data.upper_bound({i,col_size}); ++elem){
+                for(auto elem = data.lower_bound({i,0}); elem!= data.upper_bound({i,num_col}); ++elem){
                     if(elem->second!=0){
                         val.push_back(elem->second);
                         col_idx.push_back(elem->first[1]);
@@ -186,15 +186,17 @@ namespace algebra{
     }
 
     template<typename T, StorageOrder stor> std::vector<T> operator*(const Matrix<T,stor>& lhs, const std::vector<T>& rhs){
-        //assuming that the dimensions make sense...
         std::vector<T> result;
-        result.resize(lhs.col_size);
+        #ifdef DEBUG
+            std::cout << "result size: "<< result.size() <<std::endl;
+        #endif 
+        result.resize(lhs.num_row);
         if(!lhs.is_compressed()){
-            for(std::size_t i = 0; i<lhs.row_size; ++i){
-                for(std::size_t j = 0; j<lhs.col_size; ++j){
+            for(std::size_t i = 0; i<lhs.num_row; ++i){
+                for(std::size_t j = 0; j<lhs.num_col; ++j){
                     result[i] += lhs(i,j)*rhs[j];   
                 }
-            }
+            } 
         }
         else{
             int j=0;//row index for the matrix
