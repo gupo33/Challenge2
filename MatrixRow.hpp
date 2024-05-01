@@ -4,6 +4,8 @@
 #include <iostream>
 #include <limits>
 
+using key = std::array<std::size_t,2>; //Alias for the matrix map key
+
 namespace algebra{
 
     enum StorageOrder {Row, Col};
@@ -18,7 +20,7 @@ namespace algebra{
 
     template <typename T,StorageOrder stor> class Matrix{ 
     private:
-        std::map<std::array<std::size_t,2>,T> data;
+        std::map<key,T> data;
         std::size_t row_size;
         std::size_t col_size;
 
@@ -42,7 +44,6 @@ namespace algebra{
         friend std::vector<T> operator* <>(const Matrix<T,stor>& lhs, const std::vector<T>& rhs);
 
     };
-
 
     template<typename T, StorageOrder stor> T& Matrix<T,stor>::operator()(std::size_t i, std::size_t j){
         auto it = data.find({i,j});
