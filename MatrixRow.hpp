@@ -2,7 +2,10 @@
 #include <array>
 #include <vector>
 #include <iostream>
+#include <fstream>
+#include <sstream>
 #include <limits>
+#include <string>
 
 using key = std::array<std::size_t,2>; //Alias for the matrix map key
 
@@ -21,8 +24,8 @@ namespace algebra{
     template <typename T,StorageOrder stor> class Matrix{ 
     private:
         std::map<key,T> data;
-        std::size_t num_row;
-        std::size_t num_col;
+        std::size_t num_row = 0;
+        std::size_t num_col = 0;
 
         std::vector<T> val;
         std::vector<std::size_t> col_idx;
@@ -30,6 +33,7 @@ namespace algebra{
 
     public:
         Matrix(std::size_t num_row, std::size_t num_col):num_row(num_row),num_col(num_col){};
+        Matrix() = default;
 
         T& operator()(std::size_t i, std::size_t j);
         T operator()(std::size_t i, std::size_t j) const;
@@ -42,6 +46,8 @@ namespace algebra{
 
         friend std::ostream& operator<< <>(std::ostream& str, const Matrix<T,stor>& mat);
         friend std::vector<T> operator* <>(const Matrix<T,stor>& lhs, const std::vector<T>& rhs);
+
+        void read(std::string filename);
 
     };
 
@@ -187,9 +193,6 @@ namespace algebra{
 
     template<typename T, StorageOrder stor> std::vector<T> operator*(const Matrix<T,stor>& lhs, const std::vector<T>& rhs){
         std::vector<T> result;
-        #ifdef DEBUG
-            std::cout << "result size: "<< result.size() <<std::endl;
-        #endif 
         result.resize(lhs.num_row);
         if(!lhs.is_compressed()){
             for(std::size_t i = 0; i<lhs.num_row; ++i){
@@ -214,5 +217,44 @@ namespace algebra{
             }
         }
         return(result);
+    }
+
+    template<typename T, StorageOrder stor> void Matrix<T,stor>::read(std::string filename){
+
+        this->data.clear(); //clears what was contained previously in the matrix
+
+        std::ifstream file{filename}; //file stream
+        std::string line; //contains each parsed line
+        bool startFlag = false; //checks if the matrix data has been reached yet
+        std::size_t i,j;
+        T val;
+        while(file){
+
+            std::getline(file,line);
+
+            if(!startFlag){
+                if(line[0]!='%'){ //skips initial comments
+                    startFlag = true; //signals start of the data
+                    std::istringstream line_stream(line);
+                    std::array<std::size_t,2> dims; //read the dimensions from the first line with numbers
+                    line_stream >> dims[0];
+                    line_stream >> dims[1];
+                    this->resize(dims[0],dims[1]);
+                    #ifdef DEBUG
+                        std::cout << "Dimensions: " <<dims[0]<<","<<dims[1]<<std::endl;
+                    #endif
+                }
+            }
+            else{
+                std::istringstream line_stream(line); //reads each line and stores each element inside the matrix
+                #ifdef DEBUG
+                    std::cout << "Current line: " << line << std::endl;
+                #endif
+                line_stream >> i;
+                line_stream >> j;
+                line_stream >> val;
+                this->data[{i-1,j-1}] = val; //coordinates in matrix market format start from one
+            }
+        }
     }
 }
