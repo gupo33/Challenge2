@@ -1,0 +1,223 @@
+\hypertarget{classalgebra_1_1Matrix}{}\doxysection{algebra\+::Matrix$<$ T, stor $>$ Class Template Reference}
+\label{classalgebra_1_1Matrix}\index{algebra::Matrix$<$ T, stor $>$@{algebra::Matrix$<$ T, stor $>$}}
+
+
+Template \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} class encoded in COOmap form, and compressible in CSR / CSC form, depending on the ordering.  
+
+
+
+
+{\ttfamily \#include $<$Matrix\+Row.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classalgebra_1_1Matrix_a5bbcc47089d96ecaf81e7b15883bf287}{Matrix}} (std\+::size\+\_\+t num\+\_\+row, std\+::size\+\_\+t num\+\_\+col)
+\begin{DoxyCompactList}\small\item\em Generates a matrix with num\+\_\+row $\ast$ num\+\_\+col size. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classalgebra_1_1Matrix_a90f9d48ca40a4ca56d6271efadc4da79}\label{classalgebra_1_1Matrix_a90f9d48ca40a4ca56d6271efadc4da79}} 
+\mbox{\hyperlink{classalgebra_1_1Matrix_a90f9d48ca40a4ca56d6271efadc4da79}{Matrix}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor generating an empty matrix. \end{DoxyCompactList}\item 
+T \& \mbox{\hyperlink{classalgebra_1_1Matrix_a1b960a731dd60332821bcac58efaf66a}{operator()}} (std\+::size\+\_\+t i, std\+::size\+\_\+t j)
+\begin{DoxyCompactList}\small\item\em Read-\/\+Write access to an element of the matrix. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classalgebra_1_1Matrix_a93220537f734697e81cc93e4ca8bf95c}{operator()}} (std\+::size\+\_\+t i, std\+::size\+\_\+t j) const
+\begin{DoxyCompactList}\small\item\em Read-\/only access to an element of the matrix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classalgebra_1_1Matrix_af46ca0063eff307972cd986301d28ef5}{resize}} (std\+::size\+\_\+t new\+\_\+row\+\_\+num, std\+::size\+\_\+t new\+\_\+col\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Resizes a matrix, eventually deleting out-\/of-\/bounds non-\/zero elements. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classalgebra_1_1Matrix_a882e0e776e346f9eb18ba68fea8cdfc3}\label{classalgebra_1_1Matrix_a882e0e776e346f9eb18ba68fea8cdfc3}} 
+void \mbox{\hyperlink{classalgebra_1_1Matrix_a882e0e776e346f9eb18ba68fea8cdfc3}{compress}} ()
+\begin{DoxyCompactList}\small\item\em Compresses an uncompressed matrix following in CSR form, removing the uncompressed matrix from memory. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classalgebra_1_1Matrix_ad03d046683a336aef288b4c82d24c02d}\label{classalgebra_1_1Matrix_ad03d046683a336aef288b4c82d24c02d}} 
+void \mbox{\hyperlink{classalgebra_1_1Matrix_ad03d046683a336aef288b4c82d24c02d}{uncompress}} ()
+\begin{DoxyCompactList}\small\item\em Uncompresses a matrix compressed in CSR form, removing the compressed matrix from memory. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classalgebra_1_1Matrix_aabb4b7632e2f32ef5f8183bb03e7e79f}{is\+\_\+compressed}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the matrix is in the compressed state or not. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classalgebra_1_1Matrix_a198db6fa9ebad880cf406c06be3034a4}{read}} (std\+::string filename)
+\begin{DoxyCompactList}\small\item\em Clears an existing matrix and fills it with the contents of a text file encoded in \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} Market format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{classalgebra_1_1Matrix_ab39da6ffebdf0e5f5deb6a40f820a9a8}{operator$<$$<$}} (std\+::ostream \&str, const \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}$<$ T, stor $>$ \&mat)
+\begin{DoxyCompactList}\small\item\em Outputs the structure to the matrix in the input stream, with different outputs depending on the compression status. \end{DoxyCompactList}\item 
+std\+::vector$<$ T $>$ \mbox{\hyperlink{classalgebra_1_1Matrix_aa242973d910059254f5473b84eb30163}{operator$\ast$}} (const \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}$<$ T, stor $>$ \&lhs, const std\+::vector$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Performs matrix-\/vector product between two correctly-\/dimensioned containers of the same type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T, Storage\+Order stor$>$\newline
+class algebra\+::\+Matrix$<$ T, stor $>$}
+
+Template \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} class encoded in COOmap form, and compressible in CSR / CSC form, depending on the ordering. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type of the matrix \\
+\hline
+{\em stor} & Indicates how the matrix is ordered (row-\/column major) \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classalgebra_1_1Matrix_a5bbcc47089d96ecaf81e7b15883bf287}\label{classalgebra_1_1Matrix_a5bbcc47089d96ecaf81e7b15883bf287}} 
+\index{algebra::Matrix$<$ T, stor $>$@{algebra::Matrix$<$ T, stor $>$}!Matrix@{Matrix}}
+\index{Matrix@{Matrix}!algebra::Matrix$<$ T, stor $>$@{algebra::Matrix$<$ T, stor $>$}}
+\doxysubsubsection{\texorpdfstring{Matrix()}{Matrix()}}
+{\footnotesize\ttfamily template$<$typename T , Storage\+Order stor$>$ \\
+\mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ T, stor $>$\+::\mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{num\+\_\+row,  }\item[{std\+::size\+\_\+t}]{num\+\_\+col }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generates a matrix with num\+\_\+row $\ast$ num\+\_\+col size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+\_\+row} & Number of rows of the matrix \\
+\hline
+{\em num\+\_\+col} & Number of columns of the matrix \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classalgebra_1_1Matrix_aabb4b7632e2f32ef5f8183bb03e7e79f}\label{classalgebra_1_1Matrix_aabb4b7632e2f32ef5f8183bb03e7e79f}} 
+\index{algebra::Matrix$<$ T, stor $>$@{algebra::Matrix$<$ T, stor $>$}!is\_compressed@{is\_compressed}}
+\index{is\_compressed@{is\_compressed}!algebra::Matrix$<$ T, stor $>$@{algebra::Matrix$<$ T, stor $>$}}
+\doxysubsubsection{\texorpdfstring{is\_compressed()}{is\_compressed()}}
+{\footnotesize\ttfamily template$<$typename T , Storage\+Order stor$>$ \\
+bool \mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ T, stor $>$\+::is\+\_\+compressed}
+
+
+
+Checks if the matrix is in the compressed state or not. 
+
+\begin{DoxyReturn}{Returns}
+Bool indicating the compression status\+: true if compressed, false otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classalgebra_1_1Matrix_a1b960a731dd60332821bcac58efaf66a}\label{classalgebra_1_1Matrix_a1b960a731dd60332821bcac58efaf66a}} 
+\index{algebra::Matrix$<$ T, stor $>$@{algebra::Matrix$<$ T, stor $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!algebra::Matrix$<$ T, stor $>$@{algebra::Matrix$<$ T, stor $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T , Storage\+Order stor$>$ \\
+T \& \mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ T, stor $>$\+::operator() (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i,  }\item[{std\+::size\+\_\+t}]{j }\end{DoxyParamCaption})}
+
+
+
+Read-\/\+Write access to an element of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Row index \\
+\hline
+{\em j} & Column index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to the element contained in the (i,j) cell of the matrix 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classalgebra_1_1Matrix_a93220537f734697e81cc93e4ca8bf95c}\label{classalgebra_1_1Matrix_a93220537f734697e81cc93e4ca8bf95c}} 
+\index{algebra::Matrix$<$ T, stor $>$@{algebra::Matrix$<$ T, stor $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!algebra::Matrix$<$ T, stor $>$@{algebra::Matrix$<$ T, stor $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , Storage\+Order stor$>$ \\
+T \mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ T, stor $>$\+::operator() (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i,  }\item[{std\+::size\+\_\+t}]{j }\end{DoxyParamCaption}) const}
+
+
+
+Read-\/only access to an element of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & row index \\
+\hline
+{\em j} & column index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Const reference to element contained in the (i,j) cell of the matrix ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classalgebra_1_1Matrix_a198db6fa9ebad880cf406c06be3034a4}\label{classalgebra_1_1Matrix_a198db6fa9ebad880cf406c06be3034a4}} 
+\index{algebra::Matrix$<$ T, stor $>$@{algebra::Matrix$<$ T, stor $>$}!read@{read}}
+\index{read@{read}!algebra::Matrix$<$ T, stor $>$@{algebra::Matrix$<$ T, stor $>$}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily template$<$typename T , Storage\+Order stor$>$ \\
+void \mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ T, stor $>$\+::read (\begin{DoxyParamCaption}\item[{std\+::string}]{filename }\end{DoxyParamCaption})}
+
+
+
+Clears an existing matrix and fills it with the contents of a text file encoded in \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} Market format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & name of the file from which to read, positioned in the executable\textquotesingle{}s directory ~\newline
+ \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classalgebra_1_1Matrix_af46ca0063eff307972cd986301d28ef5}\label{classalgebra_1_1Matrix_af46ca0063eff307972cd986301d28ef5}} 
+\index{algebra::Matrix$<$ T, stor $>$@{algebra::Matrix$<$ T, stor $>$}!resize@{resize}}
+\index{resize@{resize}!algebra::Matrix$<$ T, stor $>$@{algebra::Matrix$<$ T, stor $>$}}
+\doxysubsubsection{\texorpdfstring{resize()}{resize()}}
+{\footnotesize\ttfamily template$<$typename T , Storage\+Order stor$>$ \\
+void \mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ T, stor $>$\+::resize (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{new\+\_\+row\+\_\+num,  }\item[{std\+::size\+\_\+t}]{new\+\_\+col\+\_\+num }\end{DoxyParamCaption})}
+
+
+
+Resizes a matrix, eventually deleting out-\/of-\/bounds non-\/zero elements. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+row\+\_\+num} & New number of rows \\
+\hline
+{\em new\+\_\+col\+\_\+num} & New number of columns \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classalgebra_1_1Matrix_aa242973d910059254f5473b84eb30163}\label{classalgebra_1_1Matrix_aa242973d910059254f5473b84eb30163}} 
+\index{algebra::Matrix$<$ T, stor $>$@{algebra::Matrix$<$ T, stor $>$}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!algebra::Matrix$<$ T, stor $>$@{algebra::Matrix$<$ T, stor $>$}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$}{operator*}}
+{\footnotesize\ttfamily template$<$typename T , Storage\+Order stor$>$ \\
+std\+::vector$<$T$>$ operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}$<$ T, stor $>$ \&}]{lhs,  }\item[{const std\+::vector$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Performs matrix-\/vector product between two correctly-\/dimensioned containers of the same type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & Left hand side of the operation \\
+\hline
+{\em rhs} & Right hand side of the operation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+result vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classalgebra_1_1Matrix_ab39da6ffebdf0e5f5deb6a40f820a9a8}\label{classalgebra_1_1Matrix_ab39da6ffebdf0e5f5deb6a40f820a9a8}} 
+\index{algebra::Matrix$<$ T, stor $>$@{algebra::Matrix$<$ T, stor $>$}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!algebra::Matrix$<$ T, stor $>$@{algebra::Matrix$<$ T, stor $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily template$<$typename T , Storage\+Order stor$>$ \\
+std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{str,  }\item[{const \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}$<$ T, stor $>$ \&}]{mat }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Outputs the structure to the matrix in the input stream, with different outputs depending on the compression status. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & stream to manipulate \\
+\hline
+{\em mat} & matrix to output \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+output stream 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Matrix\+Row.\+hpp\end{DoxyCompactItemize}
