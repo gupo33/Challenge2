@@ -64,7 +64,7 @@ namespace algebra{
         /// @tparam T type of the Matrix
         /// @param new_row_num new number of rows 
         /// @param new_col_num new number of columns
-        void resize(std::size_t row_newsize, std::size_t new_col_num);
+        void resize(std::size_t new_row_num, std::size_t new_col_num);
 
         /// @brief Compresses an uncompressed Matrix following the CSC paradigm, removing the uncompressed data from memory
         /// @tparam T type of the Matrix

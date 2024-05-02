@@ -38,7 +38,7 @@ namespace algebra{
         T& operator()(std::size_t i, std::size_t j);
         T operator()(std::size_t i, std::size_t j) const;
 
-        void resize(std::size_t row_newsize, std::size_t col_newsize);
+        void resize(std::size_t new_row_num, std::size_t new_col_num);
 
         void compress();
         void uncompress();
@@ -106,14 +106,14 @@ namespace algebra{
 
     }
 
-    template<typename T, StorageOrder stor> void Matrix<T,stor>::resize(std::size_t row_newsize, std::size_t col_newsize){
+    template<typename T, StorageOrder stor> void Matrix<T,stor>::resize(std::size_t new_row_num, std::size_t new_col_num){
         #ifdef DEBUG
             std::cout << "started resizing" << std::endl;
         #endif
         if(!is_compressed()){
-            if(row_newsize < num_row || col_newsize < num_col){
+            if(new_row_num < num_row || new_col_num < num_col){
                 for(auto elem = data.begin(); elem != data.end();){
-                    if(elem->first[0] >= row_newsize || elem->first[1] >= col_newsize){
+                    if(elem->first[0] >= new_row_num || elem->first[1] >= new_col_num){
                         #ifdef DEBUG
                             std::cout << "erased element in position" << elem->first[0] << "," << elem->first[1] << std::endl;
                         #endif
@@ -124,8 +124,8 @@ namespace algebra{
                     }
                 }
             }
-            num_row = row_newsize;
-            num_col = col_newsize;
+            num_row = new_row_num;
+            num_col = new_col_num;
             #ifdef DEBUG
                 std::cout << "finished resizing" << std::endl;
             #endif
