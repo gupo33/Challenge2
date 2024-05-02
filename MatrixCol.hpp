@@ -6,7 +6,8 @@
 #include <iostream>
 #include <limits>
 
-//Column-major specialization of the matrix class
+/// @file MatrixCol.hpp
+/// @brief Contains the implementation of the column-major matrix class, as a specialization of the row-major case
 
 namespace algebra{
 
@@ -16,84 +17,82 @@ namespace algebra{
     template <typename T> std::vector<T> operator*(const Matrix<T,Col>& lhs, const std::vector<T>& rhs);
     template <typename T> std::ostream& operator<<(std::ostream& str, const Matrix<T,Col>& mat);
 
-    
+    //Custom comparator used in the data map to implement column-major ordering
     struct cmpCol{
         bool operator()(const key& lhs, const key& rhs) const{
             return(lhs[1] < rhs[1] || (lhs[1] == rhs[1] && lhs[0] < rhs[0]));
         }
     };
 
+    
+    /// @brief Template column-major Matrix class encoded in COOmap form, and compressible in CSC form
+    /// @tparam T type of the elements of the Matrix
     template <typename T> class Matrix<T,Col>{ 
     private:
+        /// @brief Container for the elements of the uncompressed Matrix, in COOmap form
         std::map<key,T,cmpCol> data;
         /// @brief Number of rows of the matrix
         std::size_t num_row;
         /// @brief Number of columns of the matrix
         std::size_t num_col;
 
-        /// @brief Vector containing the non-zero elements of the compressed matrix
+        /// @brief Vector containing the non-zero elements of the compressed Matrix
         std::vector<T> val;
         /// @brief Vector containing the number of non-zero elements above each row
         std::vector<std::size_t> col_idx;
-        /// @brief Vector indicating the row indices of the non-zero elements of the compressed matrix
+        /// @brief Vector indicating the row indices of the non-zero elements of the compressed Matrix
         std::vector<std::size_t> row_idx;
 
     public:
 
-        /// @brief Constructor for the Matrix
+        /// @brief Generates a Matrix with num_row * num_col size elements
         /// @param num_row Number of rows of the Matrix
         /// @param num_col Number of columns of the Matrix
         Matrix(std::size_t num_row, std::size_t num_col):num_row(num_row),num_col(num_col){};
+        
+        /// @brief Default constructor generating an empty Matrix
         Matrix() = default;
 
-        /// @brief Read-Write access to an element of the matrix
-        /// @tparam T type of the matrix
+        /// @brief Read-Write access to an element of the Matrix, resizing if inserting out-of-bounds
         /// @param i row index
         /// @param j column index
         /// @return Reference to element contained in the (i,j) cell of the matrix
         T& operator()(std::size_t i, std::size_t j);
 
-        /// @brief Read-only access to an element of the matrix
-        /// @tparam T type of the matrix
+        /// @brief Read-only access to an element of the Matrix
         /// @param i row index
         /// @param j column index
         /// @return Const reference to element contained in the (i,j) cell of the matrix
         T operator()(std::size_t i, std::size_t j) const;
 
         /// @brief Resizes a Matrix, eventually deleting out-of-bounds non-zero elements
-        /// @tparam T type of the Matrix
         /// @param new_row_num new number of rows 
         /// @param new_col_num new number of columns
         void resize(std::size_t new_row_num, std::size_t new_col_num);
 
-        /// @brief Compresses an uncompressed Matrix following the CSC paradigm, removing the uncompressed data from memory
-        /// @tparam T type of the Matrix
+        /// @brief Compresses an uncompressed Matrix in CSC form, removing the uncompressed data from memory
         void compress();
         
-        /// @brief Uncompresses a Matrix compressed with the CSC paradigm, removing the compressed data from memory
-        /// @tparam T type of the Matrix
+        /// @brief Uncompresses a Matrix compressed in CSC form, removing the compressed data from memory
         void uncompress();
 
         /// @brief Checks if the Matrix is in the compressed state or not
         /// @return Bool indicating the compression status: true if compressed, false otherwise
         bool is_compressed() const;
 
-        /// @brief Outputs the structure to the matrix in the input stream, with different outputs depending on the compression status
-        /// @tparam T type of the Matrix
+        /// @brief Outputs the structure to the Matrix in the input stream, with different outputs depending on the compression status
         /// @param str stream to manipulate
         /// @param mat matrix to output
         /// @return output stream
         friend std::ostream& operator<< <>(std::ostream& str, const Matrix<T,Col>& mat);
 
-        /// @brief Performs matrix-vector product between two correctly-dimensioned containers
-        /// @tparam T type of the containers
+        /// @brief Performs Matrix-vector product between two correctly-dimensioned containers of the same type
         /// @param lhs Left hand side of the operation
         /// @param rhs Right hand side of the operation
         /// @return result vector
         friend std::vector<T> operator* <>(const Matrix<T,Col>& lhs, const std::vector<T>& rhs);
 
-        /// @brief Fills an existing matrix with the contents of a text file encoded in Matrix Market format
-        /// @tparam T type of the Matrix
+        /// @brief Clears an existing Matrix and fills it with the contents of a text file encoded in Matrix-Market format
         /// @param filename name of the file from which to read 
         void read(std::string filename);
 

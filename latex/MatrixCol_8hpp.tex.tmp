@@ -1,0 +1,71 @@
+\hypertarget{MatrixCol_8hpp}{}\doxysection{Matrix\+Col.\+hpp File Reference}
+\label{MatrixCol_8hpp}\index{MatrixCol.hpp@{MatrixCol.hpp}}
+
+
+Contains the implementation of the column-\/major matrix class, as a specialization of the row-\/major case.  
+
+
+{\ttfamily \#include \char`\"{}Matrix\+Row.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+Include dependency graph for Matrix\+Col.\+hpp\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structalgebra_1_1cmpCol}{algebra\+::cmp\+Col}}
+\item 
+class \mbox{\hyperlink{classalgebra_1_1Matrix_3_01T_00_01Col_01_4}{algebra\+::\+Matrix$<$ T, Col $>$}}
+\begin{DoxyCompactList}\small\item\em Template column-\/major \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} class encoded in COOmap form, and compressible in CSC form. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{MatrixCol_8hpp_a15a394b15e7bc8925e39513683bbc9c9}{algebra\+::operator$\ast$}} (const Matrix$<$ T, Col $>$ \&lhs, const std\+::vector$<$ T $>$ \&rhs)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \mbox{\hyperlink{MatrixCol_8hpp_a4b10b9ac7a1dbc43a3f278dd5fb2b3c3}{algebra\+::operator$<$$<$}} (std\+::ostream \&str, const Matrix$<$ T, Col $>$ \&mat)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains the implementation of the column-\/major matrix class, as a specialization of the row-\/major case. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{MatrixCol_8hpp_a15a394b15e7bc8925e39513683bbc9c9}\label{MatrixCol_8hpp_a15a394b15e7bc8925e39513683bbc9c9}} 
+\index{MatrixCol.hpp@{MatrixCol.hpp}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!MatrixCol.hpp@{MatrixCol.hpp}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::vector$<$ T $>$ algebra\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}$<$ T, Col $>$ \&}]{lhs,  }\item[{const std\+::vector$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & Left hand side of the operation \\
+\hline
+{\em rhs} & Right hand side of the operation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+result vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{MatrixCol_8hpp_a4b10b9ac7a1dbc43a3f278dd5fb2b3c3}\label{MatrixCol_8hpp_a4b10b9ac7a1dbc43a3f278dd5fb2b3c3}} 
+\index{MatrixCol.hpp@{MatrixCol.hpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!MatrixCol.hpp@{MatrixCol.hpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::ostream \& algebra\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{str,  }\item[{const \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}$<$ T, Col $>$ \&}]{mat }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & stream to manipulate \\
+\hline
+{\em mat} & matrix to output \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+output stream 
+\end{DoxyReturn}

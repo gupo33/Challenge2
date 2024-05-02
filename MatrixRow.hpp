@@ -29,7 +29,7 @@ namespace algebra{
     /// @tparam stor Indicates how the Matrix is ordered (row-column major)
     template <typename T,StorageOrder stor> class Matrix{ 
     private:
-        /// @brief Container for the elements of the uncompressed Matrix, using the COOmap paradigm
+        /// @brief Container for the elements of the uncompressed Matrix, in COOmap form
         std::map<key,T> data;
         /// @brief Number of rows of the Matrix
         std::size_t num_row = 0;
@@ -44,7 +44,7 @@ namespace algebra{
         std::vector<std::size_t> row_idx;
 
     public:
-        /// @brief Generates a Matrix with num_row * num_col size
+        /// @brief Generates a Matrix with num_row * num_col size elements
         /// @param num_row Number of rows of the matrix
         /// @param num_col Number of columns of the matrix
         Matrix(std::size_t num_row, std::size_t num_col):num_row(num_row),num_col(num_col){};
@@ -69,7 +69,7 @@ namespace algebra{
         /// @param new_col_num New number of columns
         void resize(std::size_t new_row_num, std::size_t new_col_num);
 
-        /// @brief Compresses an uncompressed Matrix following in CSR form, removing the uncompressed matrix from memory
+        /// @brief Compresses an uncompressed Matrix in CSR form, removing the uncompressed matrix from memory
         void compress();
 
         /// @brief Uncompresses a Matrix compressed in CSR form, removing the compressed matrix from memory
