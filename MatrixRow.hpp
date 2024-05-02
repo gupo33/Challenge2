@@ -7,10 +7,12 @@
 #include <limits>
 #include <string>
 
-using key = std::array<std::size_t,2>; //Alias for the matrix map key
+/// @brief Alias for the matrix map key
+using key = std::array<std::size_t,2>;
 
 namespace algebra{
 
+    /// @brief Enumerator indicating the ordering of the matrix
     enum StorageOrder {Row, Col};
 
     //pre-declarations needed for template friends
@@ -19,34 +21,75 @@ namespace algebra{
     template <typename T, StorageOrder stor> std::vector<T> operator*(const Matrix<T,stor>& lhs, const std::vector<T>& rhs);
     template <typename T, StorageOrder stor> std::ostream& operator<<(std::ostream& str, const Matrix<T,stor>& mat);
 
-
-
+    /// @brief Template Matrix class encoded in COOmap form, and compressible in CSR / CSC form, depending on the ordering
+    /// @tparam T type of the matrix
+    /// @tparam stor Indicates how the matrix is ordered (row-column major)
     template <typename T,StorageOrder stor> class Matrix{ 
     private:
+        /// @brief Container for the elements of the uncompressed matrix, using the COOmap paradigm
         std::map<key,T> data;
+        /// @brief Number of rows of the matrix
         std::size_t num_row = 0;
+        /// @brief Number of columns of the matrix
         std::size_t num_col = 0;
 
+        /// @brief Vector containing the non-zero elements of the compressed matrix
         std::vector<T> val;
+        /// @brief  Vector indicating the column indices of the non-zero elements of the compressed matrix
         std::vector<std::size_t> col_idx;
+        /// @brief Vector containing the number of non-zero elements in all previous rows for each row
         std::vector<std::size_t> row_idx;
 
     public:
+        /// @brief Generates a matrix with num_row * num_col size
+        /// @param num_row Number of rows of the matrix
+        /// @param num_col Number of columns of the matrix
         Matrix(std::size_t num_row, std::size_t num_col):num_row(num_row),num_col(num_col){};
+        
+        /// @brief Default constructor generating an empty matrix
         Matrix() = default;
 
+        /// @brief Read-Write access to an element of the matrix, resizing if inserting out-of-bounds
+        /// @param i Row index
+        /// @param j Column index
+        /// @return Reference to the element contained in the (i,j) cell of the matrix
         T& operator()(std::size_t i, std::size_t j);
+
+        /// @brief Read-only access to an element of the matrix
+        /// @param i row index
+        /// @param j column index
+        /// @return Const reference to element contained in the (i,j) cell of the matrix        
         T operator()(std::size_t i, std::size_t j) const;
 
+        /// @brief Resizes a matrix, eventually deleting out-of-bounds non-zero elements
+        /// @param new_row_num New number of rows 
+        /// @param new_col_num New number of columns
         void resize(std::size_t new_row_num, std::size_t new_col_num);
 
+        /// @brief Compresses an uncompressed matrix following in CSR form, removing the uncompressed matrix from memory
         void compress();
+
+        /// @brief Uncompresses a matrix compressed in CSR form, removing the compressed matrix from memory
         void uncompress();
+ 
+        /// @brief Checks if the matrix is in the compressed state or not
+        /// @return Bool indicating the compression status: true if compressed, false otherwise
         bool is_compressed() const;
 
+        /// @brief Outputs the structure to the matrix in the input stream, with different outputs depending on the compression status
+        /// @param str stream to manipulate
+        /// @param mat matrix to output
+        /// @return output stream
         friend std::ostream& operator<< <>(std::ostream& str, const Matrix<T,stor>& mat);
+
+        /// @brief Performs matrix-vector product between two correctly-dimensioned containers of the same type
+        /// @param lhs Left hand side of the operation
+        /// @param rhs Right hand side of the operation
+        /// @return result vector
         friend std::vector<T> operator* <>(const Matrix<T,stor>& lhs, const std::vector<T>& rhs);
 
+        /// @brief Clears an existing matrix and fills it with the contents of a text file encoded in Matrix Market format
+        /// @param filename name of the file from which to read, positioned in the executable's directory 
         void read(std::string filename);
 
     };

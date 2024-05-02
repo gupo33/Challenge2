@@ -16,7 +16,6 @@ namespace algebra{
     template <typename T> std::vector<T> operator*(const Matrix<T,Col>& lhs, const std::vector<T>& rhs);
     template <typename T> std::ostream& operator<<(std::ostream& str, const Matrix<T,Col>& mat);
 
-    /// @brief custom comparator used for column-major matrices
     struct cmpCol{
         bool operator()(const key& lhs, const key& rhs) const{
             return(lhs[1] < rhs[1] || (lhs[1] == rhs[1] && lhs[0] < rhs[0]));
@@ -25,7 +24,6 @@ namespace algebra{
 
     template <typename T> class Matrix<T,Col>{ 
     private:
-        /// @brief Container for the elements of the uncompressed matrix, using the COOmap paradigm
         std::map<key,T,cmpCol> data;
         /// @brief Number of rows of the matrix
         std::size_t num_row;
