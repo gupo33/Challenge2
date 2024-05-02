@@ -45,6 +45,7 @@ namespace algebra{
         /// @param num_row Number of rows of the Matrix
         /// @param num_col Number of columns of the Matrix
         Matrix(std::size_t num_row, std::size_t num_col):num_row(num_row),num_col(num_col){};
+        Matrix() = default;
 
         /// @brief Read-Write access to an element of the matrix
         /// @tparam T type of the matrix
