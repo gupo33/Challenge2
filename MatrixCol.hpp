@@ -16,7 +16,8 @@ namespace algebra{
     template <typename T> std::vector<T> operator*(const Matrix<T,Col>& lhs, const std::vector<T>& rhs);
     template <typename T> std::ostream& operator<<(std::ostream& str, const Matrix<T,Col>& mat);
 
-    struct cmpCol{ //custom comparator for column-major matrices
+    /// @brief custom comparator used for column-major matrices
+    struct cmpCol{
         bool operator()(const key& lhs, const key& rhs) const{
             return(lhs[1] < rhs[1] || (lhs[1] == rhs[1] && lhs[0] < rhs[0]));
         }
@@ -24,29 +25,76 @@ namespace algebra{
 
     template <typename T> class Matrix<T,Col>{ 
     private:
+        /// @brief Container for the elements of the uncompressed matrix, using the COOmap paradigm
         std::map<key,T,cmpCol> data;
+        /// @brief Number of rows of the matrix
         std::size_t num_row;
+        /// @brief Number of columns of the matrix
         std::size_t num_col;
 
+        /// @brief Vector containing the non-zero elements of the compressed matrix
         std::vector<T> val;
+        /// @brief Vector containing the number of non-zero elements above each row
         std::vector<std::size_t> col_idx;
+        /// @brief Vector indicating the row indices of the non-zero elements of the compressed matrix
         std::vector<std::size_t> row_idx;
 
     public:
+
+        /// @brief Constructor for the Matrix
+        /// @param num_row Number of rows of the Matrix
+        /// @param num_col Number of columns of the Matrix
         Matrix(std::size_t num_row, std::size_t num_col):num_row(num_row),num_col(num_col){};
 
+        /// @brief Read-Write access to an element of the matrix
+        /// @tparam T type of the matrix
+        /// @param i row index
+        /// @param j column index
+        /// @return Reference to element contained in the (i,j) cell of the matrix
         T& operator()(std::size_t i, std::size_t j);
+
+        /// @brief Read-only access to an element of the matrix
+        /// @tparam T type of the matrix
+        /// @param i row index
+        /// @param j column index
+        /// @return Const reference to element contained in the (i,j) cell of the matrix
         T operator()(std::size_t i, std::size_t j) const;
 
-        void resize(std::size_t row_newsize, std::size_t col_newsize);
+        /// @brief Resizes a Matrix, eventually deleting out-of-bounds non-zero elements
+        /// @tparam T type of the Matrix
+        /// @param new_row_num new number of rows 
+        /// @param new_col_num new number of columns
+        void resize(std::size_t row_newsize, std::size_t new_col_num);
 
+        /// @brief Compresses an uncompressed Matrix following the CSC paradigm, removing the uncompressed data from memory
+        /// @tparam T type of the Matrix
         void compress();
+        
+        /// @brief Uncompresses a Matrix compressed with the CSC paradigm, removing the compressed data from memory
+        /// @tparam T type of the Matrix
         void uncompress();
+
+        /// @brief Checks if the Matrix is in the compressed state or not
+        /// @return Bool indicating the compression status: true if compressed, false otherwise
         bool is_compressed() const;
 
+        /// @brief Outputs the structure to the matrix in the input stream, with different outputs depending on the compression status
+        /// @tparam T type of the Matrix
+        /// @param str stream to manipulate
+        /// @param mat matrix to output
+        /// @return output stream
         friend std::ostream& operator<< <>(std::ostream& str, const Matrix<T,Col>& mat);
+
+        /// @brief Performs matrix-vector product between two correctly-dimensioned containers
+        /// @tparam T type of the containers
+        /// @param lhs Left hand side of the operation
+        /// @param rhs Right hand side of the operation
+        /// @return result vector
         friend std::vector<T> operator* <>(const Matrix<T,Col>& lhs, const std::vector<T>& rhs);
 
+        /// @brief Fills an existing matrix with the contents of a text file encoded in Matrix Market format
+        /// @tparam T type of the Matrix
+        /// @param filename name of the file from which to read 
         void read(std::string filename);
 
     };
@@ -106,14 +154,14 @@ namespace algebra{
 
     }
 
-    template<typename T> void Matrix<T,Col>::resize(std::size_t row_newsize, std::size_t col_newsize){
+    template<typename T> void Matrix<T,Col>::resize(std::size_t new_row_num, std::size_t new_col_num){
         #ifdef DEBUG
             std::cout << "started resizing" << std::endl;
         #endif
         if(!is_compressed()){
-            if(row_newsize < num_row || col_newsize < num_col){
+            if(new_row_num < num_row || new_col_num < num_col){
                 for(auto elem = data.begin(); elem != data.end();){
-                    if(elem->first[0] >= row_newsize || elem->first[1] >= col_newsize){
+                    if(elem->first[0] >= new_row_num || elem->first[1] >= new_col_num){
                         #ifdef DEBUG
                             std::cout << "erased element in position" << elem->first[0] << "," << elem->first[1] << std::endl;
                         #endif
@@ -124,8 +172,8 @@ namespace algebra{
                     }
                 }
             }
-            num_row = row_newsize;
-            num_col = col_newsize;
+            num_row = new_row_num;
+            num_col = new_col_num;
             #ifdef DEBUG
                 std::cout << "finished resizing" << std::endl;
             #endif
@@ -238,7 +286,7 @@ namespace algebra{
 
         this->data.clear(); //clears what was contained previously in the matrix
 
-        std::ifstream file{filename}; //file stream
+        std::ifstream file{filename}; //opens file stream
         std::string line; //contains each parsed line
         bool startFlag = false; //checks if the matrix data has been reached yet
         std::size_t i,j;
