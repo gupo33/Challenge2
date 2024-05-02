@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['matrix_16',['Matrix',['../classalgebra_1_1Matrix_3_01T_00_01Col_01_4.html#aab95048b07893b0a8bc8ec5cb5db1308',1,'algebra::Matrix&lt; T, Col &gt;::Matrix()'],['../classalgebra_1_1Matrix.html#a5bbcc47089d96ecaf81e7b15883bf287',1,'algebra::Matrix::Matrix(std::size_t num_row, std::size_t num_col)'],['../classalgebra_1_1Matrix.html#a90f9d48ca40a4ca56d6271efadc4da79',1,'algebra::Matrix::Matrix()=default']]]
+  ['main_29',['main',['../main_8cpp.html#ac0f2228420376f4db7e1274f2b41667c',1,'main.cpp']]],
+  ['matrix_30',['Matrix',['../classalgebra_1_1Matrix_3_01T_00_01Col_01_4.html#aab95048b07893b0a8bc8ec5cb5db1308',1,'algebra::Matrix&lt; T, Col &gt;::Matrix(std::size_t num_row, std::size_t num_col)'],['../classalgebra_1_1Matrix_3_01T_00_01Col_01_4.html#a48cfb09d2d3e57a490868638ee01c7c9',1,'algebra::Matrix&lt; T, Col &gt;::Matrix()=default'],['../classalgebra_1_1Matrix.html#a5bbcc47089d96ecaf81e7b15883bf287',1,'algebra::Matrix::Matrix(std::size_t num_row, std::size_t num_col)'],['../classalgebra_1_1Matrix.html#a90f9d48ca40a4ca56d6271efadc4da79',1,'algebra::Matrix::Matrix()=default']]]
 ];

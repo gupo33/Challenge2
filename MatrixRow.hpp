@@ -50,7 +50,7 @@ namespace algebra{
         /// @brief Default constructor generating an empty matrix
         Matrix() = default;
 
-        /// @brief Read-Write access to an element of the matrix
+        /// @brief Read-Write access to an element of the matrix, resizing if inserting out-of-bounds
         /// @param i Row index
         /// @param j Column index
         /// @return Reference to the element contained in the (i,j) cell of the matrix

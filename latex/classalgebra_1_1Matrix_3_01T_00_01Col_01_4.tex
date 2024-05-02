@@ -1,20 +1,24 @@
 \hypertarget{classalgebra_1_1Matrix_3_01T_00_01Col_01_4}{}\doxysection{algebra\+::Matrix$<$ T, Col $>$ Class Template Reference}
 \label{classalgebra_1_1Matrix_3_01T_00_01Col_01_4}\index{algebra::Matrix$<$ T, Col $>$@{algebra::Matrix$<$ T, Col $>$}}
+
+
+{\ttfamily \#include $<$Matrix\+Col.\+hpp$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_aab95048b07893b0a8bc8ec5cb5db1308}{Matrix}} (std\+::size\+\_\+t num\+\_\+row, std\+::size\+\_\+t num\+\_\+col)
 \begin{DoxyCompactList}\small\item\em Constructor for the \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_a48cfb09d2d3e57a490868638ee01c7c9}{Matrix}} ()=default
+\item 
 T \& \mbox{\hyperlink{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_a088689182bca71187b16e2215a435a41}{operator()}} (std\+::size\+\_\+t i, std\+::size\+\_\+t j)
 \begin{DoxyCompactList}\small\item\em Read-\/\+Write access to an element of the matrix. \end{DoxyCompactList}\item 
 T \mbox{\hyperlink{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_a4fc87738facdc5fd91195379d1156b82}{operator()}} (std\+::size\+\_\+t i, std\+::size\+\_\+t j) const
 \begin{DoxyCompactList}\small\item\em Read-\/only access to an element of the matrix. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_a69a3d4096ea57e83d7cd700375350194}{resize}} (std\+::size\+\_\+t new\+\_\+row\+\_\+num, std\+::size\+\_\+t new\+\_\+col\+\_\+num)
 \begin{DoxyCompactList}\small\item\em Resizes a \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}, eventually deleting out-\/of-\/bounds non-\/zero elements. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_a8e4257508254a69b68856e96fc92fe34}\label{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_a8e4257508254a69b68856e96fc92fe34}} 
 void \mbox{\hyperlink{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_a8e4257508254a69b68856e96fc92fe34}{compress}} ()
 \begin{DoxyCompactList}\small\item\em Compresses an uncompressed \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} in CSC form, removing the uncompressed matrix from memory. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_a5747a92b6c57046035496bf469cd532f}\label{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_a5747a92b6c57046035496bf469cd532f}} 
 void \mbox{\hyperlink{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_a5747a92b6c57046035496bf469cd532f}{uncompress}} ()
 \begin{DoxyCompactList}\small\item\em Uncompresses a \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} compressed in CSC form, removing the compressed matrix from memory. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_afbdf2372836fd184bdf52dddf7c8a914}{is\+\_\+compressed}} () const
@@ -24,9 +28,9 @@ void \mbox{\hyperlink{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_af489e3a69a7bcf
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
-std\+::ostream \& \mbox{\hyperlink{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_a10edffaa7d3d816196e6936c89fe85e9}{operator$<$$<$}} (std\+::ostream \&str, const \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}$<$ T, Col $>$ \&mat)
+std\+::ostream \& \mbox{\hyperlink{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_a10edffaa7d3d816196e6936c89fe85e9}{operator$<$$<$}} (std\+::ostream \&str, const \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}$<$ T, \mbox{\hyperlink{namespacealgebra_af7f291bc9289c8ac99068a8ae4873108a32a00087afc661bf016aaff3a5898155}{Col}} $>$ \&mat)
 \begin{DoxyCompactList}\small\item\em Outputs the structure to the matrix in the input stream, with different outputs depending on the compression status. \end{DoxyCompactList}\item 
-std\+::vector$<$ T $>$ \mbox{\hyperlink{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_aba2332081557633a1dafba5a3cd931e9}{operator$\ast$}} (const \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}$<$ T, Col $>$ \&lhs, const std\+::vector$<$ T $>$ \&rhs)
+std\+::vector$<$ T $>$ \mbox{\hyperlink{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_aba2332081557633a1dafba5a3cd931e9}{operator$\ast$}} (const \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}$<$ T, \mbox{\hyperlink{namespacealgebra_af7f291bc9289c8ac99068a8ae4873108a32a00087afc661bf016aaff3a5898155}{Col}} $>$ \&lhs, const std\+::vector$<$ T $>$ \&rhs)
 \begin{DoxyCompactList}\small\item\em Performs matrix-\/vector product between two correctly-\/dimensioned containers of the same type. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -34,9 +38,9 @@ std\+::vector$<$ T $>$ \mbox{\hyperlink{classalgebra_1_1Matrix_3_01T_00_01Col_01
 \mbox{\Hypertarget{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_aab95048b07893b0a8bc8ec5cb5db1308}\label{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_aab95048b07893b0a8bc8ec5cb5db1308}} 
 \index{algebra::Matrix$<$ T, Col $>$@{algebra::Matrix$<$ T, Col $>$}!Matrix@{Matrix}}
 \index{Matrix@{Matrix}!algebra::Matrix$<$ T, Col $>$@{algebra::Matrix$<$ T, Col $>$}}
-\doxysubsubsection{\texorpdfstring{Matrix()}{Matrix()}}
+\doxysubsubsection{\texorpdfstring{Matrix()}{Matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-\mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ T, Col $>$\+::\mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{num\+\_\+row,  }\item[{std\+::size\+\_\+t}]{num\+\_\+col }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ T, \mbox{\hyperlink{namespacealgebra_af7f291bc9289c8ac99068a8ae4873108a32a00087afc661bf016aaff3a5898155}{Col}} $>$\+::\mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{num\+\_\+row,  }\item[{std\+::size\+\_\+t}]{num\+\_\+col }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -49,15 +53,33 @@ Constructor for the \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}.
 {\em num\+\_\+col} & Number of columns of the \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_a48cfb09d2d3e57a490868638ee01c7c9}\label{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_a48cfb09d2d3e57a490868638ee01c7c9}} 
+\index{algebra::Matrix$<$ T, Col $>$@{algebra::Matrix$<$ T, Col $>$}!Matrix@{Matrix}}
+\index{Matrix@{Matrix}!algebra::Matrix$<$ T, Col $>$@{algebra::Matrix$<$ T, Col $>$}}
+\doxysubsubsection{\texorpdfstring{Matrix()}{Matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ T, \mbox{\hyperlink{namespacealgebra_af7f291bc9289c8ac99068a8ae4873108a32a00087afc661bf016aaff3a5898155}{Col}} $>$\+::\mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_a8e4257508254a69b68856e96fc92fe34}\label{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_a8e4257508254a69b68856e96fc92fe34}} 
+\index{algebra::Matrix$<$ T, Col $>$@{algebra::Matrix$<$ T, Col $>$}!compress@{compress}}
+\index{compress@{compress}!algebra::Matrix$<$ T, Col $>$@{algebra::Matrix$<$ T, Col $>$}}
+\doxysubsubsection{\texorpdfstring{compress()}{compress()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ T, \mbox{\hyperlink{namespacealgebra_af7f291bc9289c8ac99068a8ae4873108a32a00087afc661bf016aaff3a5898155}{Col}} $>$\+::compress}
+
+
+
+Compresses an uncompressed \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} in CSC form, removing the uncompressed matrix from memory. 
+
 \mbox{\Hypertarget{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_afbdf2372836fd184bdf52dddf7c8a914}\label{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_afbdf2372836fd184bdf52dddf7c8a914}} 
 \index{algebra::Matrix$<$ T, Col $>$@{algebra::Matrix$<$ T, Col $>$}!is\_compressed@{is\_compressed}}
 \index{is\_compressed@{is\_compressed}!algebra::Matrix$<$ T, Col $>$@{algebra::Matrix$<$ T, Col $>$}}
 \doxysubsubsection{\texorpdfstring{is\_compressed()}{is\_compressed()}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-bool \mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ T, Col $>$\+::is\+\_\+compressed}
+bool \mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ T, \mbox{\hyperlink{namespacealgebra_af7f291bc9289c8ac99068a8ae4873108a32a00087afc661bf016aaff3a5898155}{Col}} $>$\+::is\+\_\+compressed}
 
 
 
@@ -71,7 +93,7 @@ Bool indicating the compression status\+: true if compressed, false otherwise
 \index{operator()@{operator()}!algebra::Matrix$<$ T, Col $>$@{algebra::Matrix$<$ T, Col $>$}}
 \doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-T \& \mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ T, Col $>$\+::operator() (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i,  }\item[{std\+::size\+\_\+t}]{j }\end{DoxyParamCaption})}
+T \& \mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ T, \mbox{\hyperlink{namespacealgebra_af7f291bc9289c8ac99068a8ae4873108a32a00087afc661bf016aaff3a5898155}{Col}} $>$\+::operator() (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i,  }\item[{std\+::size\+\_\+t}]{j }\end{DoxyParamCaption})}
 
 
 
@@ -92,7 +114,7 @@ Reference to element contained in the (i,j) cell of the matrix
 \index{operator()@{operator()}!algebra::Matrix$<$ T, Col $>$@{algebra::Matrix$<$ T, Col $>$}}
 \doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-T \mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ T, Col $>$\+::operator() (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i,  }\item[{std\+::size\+\_\+t}]{j }\end{DoxyParamCaption}) const}
+T \mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ T, \mbox{\hyperlink{namespacealgebra_af7f291bc9289c8ac99068a8ae4873108a32a00087afc661bf016aaff3a5898155}{Col}} $>$\+::operator() (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i,  }\item[{std\+::size\+\_\+t}]{j }\end{DoxyParamCaption}) const}
 
 
 
@@ -113,7 +135,7 @@ Const reference to element contained in the (i,j) cell of the matrix
 \index{read@{read}!algebra::Matrix$<$ T, Col $>$@{algebra::Matrix$<$ T, Col $>$}}
 \doxysubsubsection{\texorpdfstring{read()}{read()}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-void \mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ T, Col $>$\+::read (\begin{DoxyParamCaption}\item[{std\+::string}]{filename }\end{DoxyParamCaption})}
+void \mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ T, \mbox{\hyperlink{namespacealgebra_af7f291bc9289c8ac99068a8ae4873108a32a00087afc661bf016aaff3a5898155}{Col}} $>$\+::read (\begin{DoxyParamCaption}\item[{std\+::string}]{filename }\end{DoxyParamCaption})}
 
 
 
@@ -130,7 +152,7 @@ Fills an existing matrix with the contents of a text file encoded in \mbox{\hype
 \index{resize@{resize}!algebra::Matrix$<$ T, Col $>$@{algebra::Matrix$<$ T, Col $>$}}
 \doxysubsubsection{\texorpdfstring{resize()}{resize()}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-void \mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ T, Col $>$\+::resize (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{new\+\_\+row\+\_\+num,  }\item[{std\+::size\+\_\+t}]{new\+\_\+col\+\_\+num }\end{DoxyParamCaption})}
+void \mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ T, \mbox{\hyperlink{namespacealgebra_af7f291bc9289c8ac99068a8ae4873108a32a00087afc661bf016aaff3a5898155}{Col}} $>$\+::resize (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{new\+\_\+row\+\_\+num,  }\item[{std\+::size\+\_\+t}]{new\+\_\+col\+\_\+num }\end{DoxyParamCaption})}
 
 
 
@@ -143,6 +165,17 @@ Resizes a \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}, eventually deleting
 {\em new\+\_\+col\+\_\+num} & new number of columns \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_a5747a92b6c57046035496bf469cd532f}\label{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_a5747a92b6c57046035496bf469cd532f}} 
+\index{algebra::Matrix$<$ T, Col $>$@{algebra::Matrix$<$ T, Col $>$}!uncompress@{uncompress}}
+\index{uncompress@{uncompress}!algebra::Matrix$<$ T, Col $>$@{algebra::Matrix$<$ T, Col $>$}}
+\doxysubsubsection{\texorpdfstring{uncompress()}{uncompress()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ T, \mbox{\hyperlink{namespacealgebra_af7f291bc9289c8ac99068a8ae4873108a32a00087afc661bf016aaff3a5898155}{Col}} $>$\+::uncompress}
+
+
+
+Uncompresses a \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} compressed in CSC form, removing the compressed matrix from memory. 
+
 
 
 \doxysubsection{Friends And Related Function Documentation}
@@ -151,7 +184,7 @@ Resizes a \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}, eventually deleting
 \index{operator$\ast$@{operator$\ast$}!algebra::Matrix$<$ T, Col $>$@{algebra::Matrix$<$ T, Col $>$}}
 \doxysubsubsection{\texorpdfstring{operator$\ast$}{operator*}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-std\+::vector$<$T$>$ operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}$<$ T, Col $>$ \&}]{lhs,  }\item[{const std\+::vector$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+std\+::vector$<$T$>$ operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}$<$ T, \mbox{\hyperlink{namespacealgebra_af7f291bc9289c8ac99068a8ae4873108a32a00087afc661bf016aaff3a5898155}{Col}} $>$ \&}]{lhs,  }\item[{const std\+::vector$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
 
 
 
@@ -172,7 +205,7 @@ result vector
 \index{operator$<$$<$@{operator$<$$<$}!algebra::Matrix$<$ T, Col $>$@{algebra::Matrix$<$ T, Col $>$}}
 \doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{str,  }\item[{const \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}$<$ T, Col $>$ \&}]{mat }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{str,  }\item[{const \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}$<$ T, \mbox{\hyperlink{namespacealgebra_af7f291bc9289c8ac99068a8ae4873108a32a00087afc661bf016aaff3a5898155}{Col}} $>$ \&}]{mat }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
 
 
 
@@ -192,4 +225,4 @@ output stream
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Matrix\+Col.\+hpp\end{DoxyCompactItemize}
+\mbox{\hyperlink{MatrixCol_8hpp}{Matrix\+Col.\+hpp}}\end{DoxyCompactItemize}

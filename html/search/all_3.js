@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['operator_28_29_5',['operator()',['../classalgebra_1_1Matrix_3_01T_00_01Col_01_4.html#a088689182bca71187b16e2215a435a41',1,'algebra::Matrix&lt; T, Col &gt;::operator()(std::size_t i, std::size_t j)'],['../classalgebra_1_1Matrix_3_01T_00_01Col_01_4.html#a4fc87738facdc5fd91195379d1156b82',1,'algebra::Matrix&lt; T, Col &gt;::operator()(std::size_t i, std::size_t j) const'],['../classalgebra_1_1Matrix.html#a1b960a731dd60332821bcac58efaf66a',1,'algebra::Matrix::operator()(std::size_t i, std::size_t j)'],['../classalgebra_1_1Matrix.html#a93220537f734697e81cc93e4ca8bf95c',1,'algebra::Matrix::operator()(std::size_t i, std::size_t j) const']]],
-  ['operator_2a_6',['operator*',['../classalgebra_1_1Matrix_3_01T_00_01Col_01_4.html#aba2332081557633a1dafba5a3cd931e9',1,'algebra::Matrix&lt; T, Col &gt;::operator*()'],['../classalgebra_1_1Matrix.html#aa242973d910059254f5473b84eb30163',1,'algebra::Matrix::operator*()']]],
-  ['operator_3c_3c_7',['operator&lt;&lt;',['../classalgebra_1_1Matrix_3_01T_00_01Col_01_4.html#a10edffaa7d3d816196e6936c89fe85e9',1,'algebra::Matrix&lt; T, Col &gt;::operator&lt;&lt;()'],['../classalgebra_1_1Matrix.html#ab39da6ffebdf0e5f5deb6a40f820a9a8',1,'algebra::Matrix::operator&lt;&lt;()']]]
+  ['key_5',['key',['../MatrixRow_8hpp.html#af9a0ab15319a8acb793b927014271fc3',1,'MatrixRow.hpp']]]
 ];

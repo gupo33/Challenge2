@@ -14,19 +14,16 @@ Template \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} class encoded in COOm
 \item 
 \mbox{\hyperlink{classalgebra_1_1Matrix_a5bbcc47089d96ecaf81e7b15883bf287}{Matrix}} (std\+::size\+\_\+t num\+\_\+row, std\+::size\+\_\+t num\+\_\+col)
 \begin{DoxyCompactList}\small\item\em Generates a matrix with num\+\_\+row $\ast$ num\+\_\+col size. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classalgebra_1_1Matrix_a90f9d48ca40a4ca56d6271efadc4da79}\label{classalgebra_1_1Matrix_a90f9d48ca40a4ca56d6271efadc4da79}} 
 \mbox{\hyperlink{classalgebra_1_1Matrix_a90f9d48ca40a4ca56d6271efadc4da79}{Matrix}} ()=default
 \begin{DoxyCompactList}\small\item\em Default constructor generating an empty matrix. \end{DoxyCompactList}\item 
 T \& \mbox{\hyperlink{classalgebra_1_1Matrix_a1b960a731dd60332821bcac58efaf66a}{operator()}} (std\+::size\+\_\+t i, std\+::size\+\_\+t j)
-\begin{DoxyCompactList}\small\item\em Read-\/\+Write access to an element of the matrix. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Read-\/\+Write access to an element of the matrix, resizing if inserting out-\/of-\/bounds. \end{DoxyCompactList}\item 
 T \mbox{\hyperlink{classalgebra_1_1Matrix_a93220537f734697e81cc93e4ca8bf95c}{operator()}} (std\+::size\+\_\+t i, std\+::size\+\_\+t j) const
 \begin{DoxyCompactList}\small\item\em Read-\/only access to an element of the matrix. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classalgebra_1_1Matrix_af46ca0063eff307972cd986301d28ef5}{resize}} (std\+::size\+\_\+t new\+\_\+row\+\_\+num, std\+::size\+\_\+t new\+\_\+col\+\_\+num)
 \begin{DoxyCompactList}\small\item\em Resizes a matrix, eventually deleting out-\/of-\/bounds non-\/zero elements. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classalgebra_1_1Matrix_a882e0e776e346f9eb18ba68fea8cdfc3}\label{classalgebra_1_1Matrix_a882e0e776e346f9eb18ba68fea8cdfc3}} 
 void \mbox{\hyperlink{classalgebra_1_1Matrix_a882e0e776e346f9eb18ba68fea8cdfc3}{compress}} ()
 \begin{DoxyCompactList}\small\item\em Compresses an uncompressed matrix following in CSR form, removing the uncompressed matrix from memory. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classalgebra_1_1Matrix_ad03d046683a336aef288b4c82d24c02d}\label{classalgebra_1_1Matrix_ad03d046683a336aef288b4c82d24c02d}} 
 void \mbox{\hyperlink{classalgebra_1_1Matrix_ad03d046683a336aef288b4c82d24c02d}{uncompress}} ()
 \begin{DoxyCompactList}\small\item\em Uncompresses a matrix compressed in CSR form, removing the compressed matrix from memory. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classalgebra_1_1Matrix_aabb4b7632e2f32ef5f8183bb03e7e79f}{is\+\_\+compressed}} () const
@@ -61,7 +58,7 @@ Template \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} class encoded in COOm
 \mbox{\Hypertarget{classalgebra_1_1Matrix_a5bbcc47089d96ecaf81e7b15883bf287}\label{classalgebra_1_1Matrix_a5bbcc47089d96ecaf81e7b15883bf287}} 
 \index{algebra::Matrix$<$ T, stor $>$@{algebra::Matrix$<$ T, stor $>$}!Matrix@{Matrix}}
 \index{Matrix@{Matrix}!algebra::Matrix$<$ T, stor $>$@{algebra::Matrix$<$ T, stor $>$}}
-\doxysubsubsection{\texorpdfstring{Matrix()}{Matrix()}}
+\doxysubsubsection{\texorpdfstring{Matrix()}{Matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$typename T , Storage\+Order stor$>$ \\
 \mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ T, stor $>$\+::\mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{num\+\_\+row,  }\item[{std\+::size\+\_\+t}]{num\+\_\+col }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -76,9 +73,31 @@ Generates a matrix with num\+\_\+row $\ast$ num\+\_\+col size.
 {\em num\+\_\+col} & Number of columns of the matrix \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classalgebra_1_1Matrix_a90f9d48ca40a4ca56d6271efadc4da79}\label{classalgebra_1_1Matrix_a90f9d48ca40a4ca56d6271efadc4da79}} 
+\index{algebra::Matrix$<$ T, stor $>$@{algebra::Matrix$<$ T, stor $>$}!Matrix@{Matrix}}
+\index{Matrix@{Matrix}!algebra::Matrix$<$ T, stor $>$@{algebra::Matrix$<$ T, stor $>$}}
+\doxysubsubsection{\texorpdfstring{Matrix()}{Matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , Storage\+Order stor$>$ \\
+\mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ T, stor $>$\+::\mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default constructor generating an empty matrix. 
+
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classalgebra_1_1Matrix_a882e0e776e346f9eb18ba68fea8cdfc3}\label{classalgebra_1_1Matrix_a882e0e776e346f9eb18ba68fea8cdfc3}} 
+\index{algebra::Matrix$<$ T, stor $>$@{algebra::Matrix$<$ T, stor $>$}!compress@{compress}}
+\index{compress@{compress}!algebra::Matrix$<$ T, stor $>$@{algebra::Matrix$<$ T, stor $>$}}
+\doxysubsubsection{\texorpdfstring{compress()}{compress()}}
+{\footnotesize\ttfamily template$<$typename T , Storage\+Order stor$>$ \\
+void \mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ T, stor $>$\+::compress}
+
+
+
+Compresses an uncompressed matrix following in CSR form, removing the uncompressed matrix from memory. 
+
 \mbox{\Hypertarget{classalgebra_1_1Matrix_aabb4b7632e2f32ef5f8183bb03e7e79f}\label{classalgebra_1_1Matrix_aabb4b7632e2f32ef5f8183bb03e7e79f}} 
 \index{algebra::Matrix$<$ T, stor $>$@{algebra::Matrix$<$ T, stor $>$}!is\_compressed@{is\_compressed}}
 \index{is\_compressed@{is\_compressed}!algebra::Matrix$<$ T, stor $>$@{algebra::Matrix$<$ T, stor $>$}}
@@ -102,7 +121,7 @@ T \& \mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ T, stor $
 
 
 
-Read-\/\+Write access to an element of the matrix. 
+Read-\/\+Write access to an element of the matrix, resizing if inserting out-\/of-\/bounds. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -171,6 +190,17 @@ Resizes a matrix, eventually deleting out-\/of-\/bounds non-\/zero elements.
 {\em new\+\_\+col\+\_\+num} & New number of columns \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classalgebra_1_1Matrix_ad03d046683a336aef288b4c82d24c02d}\label{classalgebra_1_1Matrix_ad03d046683a336aef288b4c82d24c02d}} 
+\index{algebra::Matrix$<$ T, stor $>$@{algebra::Matrix$<$ T, stor $>$}!uncompress@{uncompress}}
+\index{uncompress@{uncompress}!algebra::Matrix$<$ T, stor $>$@{algebra::Matrix$<$ T, stor $>$}}
+\doxysubsubsection{\texorpdfstring{uncompress()}{uncompress()}}
+{\footnotesize\ttfamily template$<$typename T , Storage\+Order stor$>$ \\
+void \mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ T, stor $>$\+::uncompress}
+
+
+
+Uncompresses a matrix compressed in CSR form, removing the compressed matrix from memory. 
+
 
 
 \doxysubsection{Friends And Related Function Documentation}
@@ -220,4 +250,4 @@ output stream
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Matrix\+Row.\+hpp\end{DoxyCompactItemize}
+\mbox{\hyperlink{MatrixRow_8hpp}{Matrix\+Row.\+hpp}}\end{DoxyCompactItemize}
