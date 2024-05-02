@@ -13,33 +13,33 @@ Template \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} class encoded in COOm
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classalgebra_1_1Matrix_a5bbcc47089d96ecaf81e7b15883bf287}{Matrix}} (std\+::size\+\_\+t num\+\_\+row, std\+::size\+\_\+t num\+\_\+col)
-\begin{DoxyCompactList}\small\item\em Generates a matrix with num\+\_\+row $\ast$ num\+\_\+col size. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Generates a \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} with num\+\_\+row $\ast$ num\+\_\+col size. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classalgebra_1_1Matrix_a90f9d48ca40a4ca56d6271efadc4da79}\label{classalgebra_1_1Matrix_a90f9d48ca40a4ca56d6271efadc4da79}} 
 \mbox{\hyperlink{classalgebra_1_1Matrix_a90f9d48ca40a4ca56d6271efadc4da79}{Matrix}} ()=default
-\begin{DoxyCompactList}\small\item\em Default constructor generating an empty matrix. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Default constructor generating an empty \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}. \end{DoxyCompactList}\item 
 T \& \mbox{\hyperlink{classalgebra_1_1Matrix_a1b960a731dd60332821bcac58efaf66a}{operator()}} (std\+::size\+\_\+t i, std\+::size\+\_\+t j)
-\begin{DoxyCompactList}\small\item\em Read-\/\+Write access to an element of the matrix, resizing if inserting out-\/of-\/bounds. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Read-\/\+Write access to an element of the \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}, resizing if inserting out-\/of-\/bounds. \end{DoxyCompactList}\item 
 T \mbox{\hyperlink{classalgebra_1_1Matrix_a93220537f734697e81cc93e4ca8bf95c}{operator()}} (std\+::size\+\_\+t i, std\+::size\+\_\+t j) const
-\begin{DoxyCompactList}\small\item\em Read-\/only access to an element of the matrix. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Read-\/only access to an element of the \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classalgebra_1_1Matrix_af46ca0063eff307972cd986301d28ef5}{resize}} (std\+::size\+\_\+t new\+\_\+row\+\_\+num, std\+::size\+\_\+t new\+\_\+col\+\_\+num)
-\begin{DoxyCompactList}\small\item\em Resizes a matrix, eventually deleting out-\/of-\/bounds non-\/zero elements. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Resizes a \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}, eventually deleting out-\/of-\/bounds non-\/zero elements. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classalgebra_1_1Matrix_a882e0e776e346f9eb18ba68fea8cdfc3}\label{classalgebra_1_1Matrix_a882e0e776e346f9eb18ba68fea8cdfc3}} 
 void \mbox{\hyperlink{classalgebra_1_1Matrix_a882e0e776e346f9eb18ba68fea8cdfc3}{compress}} ()
-\begin{DoxyCompactList}\small\item\em Compresses an uncompressed matrix following in CSR form, removing the uncompressed matrix from memory. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Compresses an uncompressed \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} following in CSR form, removing the uncompressed matrix from memory. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classalgebra_1_1Matrix_ad03d046683a336aef288b4c82d24c02d}\label{classalgebra_1_1Matrix_ad03d046683a336aef288b4c82d24c02d}} 
 void \mbox{\hyperlink{classalgebra_1_1Matrix_ad03d046683a336aef288b4c82d24c02d}{uncompress}} ()
-\begin{DoxyCompactList}\small\item\em Uncompresses a matrix compressed in CSR form, removing the compressed matrix from memory. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Uncompresses a \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} compressed in CSR form, removing the compressed matrix from memory. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classalgebra_1_1Matrix_aabb4b7632e2f32ef5f8183bb03e7e79f}{is\+\_\+compressed}} () const
-\begin{DoxyCompactList}\small\item\em Checks if the matrix is in the compressed state or not. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Checks if the \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} is in the compressed state or not. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classalgebra_1_1Matrix_a198db6fa9ebad880cf406c06be3034a4}{read}} (std\+::string filename)
-\begin{DoxyCompactList}\small\item\em Clears an existing matrix and fills it with the contents of a text file encoded in \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} Market format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Clears an existing \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} and fills it with the contents of a text file encoded in Matrix-\/\+Market format. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
 std\+::ostream \& \mbox{\hyperlink{classalgebra_1_1Matrix_ab39da6ffebdf0e5f5deb6a40f820a9a8}{operator$<$$<$}} (std\+::ostream \&str, const \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}$<$ T, stor $>$ \&mat)
-\begin{DoxyCompactList}\small\item\em Outputs the structure to the matrix in the input stream, with different outputs depending on the compression status. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Outputs the structure to the \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} in the input stream, with different outputs depending on the compression status. \end{DoxyCompactList}\item 
 std\+::vector$<$ T $>$ \mbox{\hyperlink{classalgebra_1_1Matrix_aa242973d910059254f5473b84eb30163}{operator$\ast$}} (const \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}$<$ T, stor $>$ \&lhs, const std\+::vector$<$ T $>$ \&rhs)
-\begin{DoxyCompactList}\small\item\em Performs matrix-\/vector product between two correctly-\/dimensioned containers of the same type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Performs Matrix-\/vector product between two correctly-\/dimensioned containers of the same type. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -50,9 +50,9 @@ Template \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} class encoded in COOm
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em T} & type of the matrix \\
+{\em T} & type of the elements of the \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} \\
 \hline
-{\em stor} & Indicates how the matrix is ordered (row-\/column major) \\
+{\em stor} & Indicates how the \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} is ordered (row-\/column major) \\
 \hline
 \end{DoxyTemplParams}
 
@@ -67,7 +67,7 @@ Template \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} class encoded in COOm
 
 
 
-Generates a matrix with num\+\_\+row $\ast$ num\+\_\+col size. 
+Generates a \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} with num\+\_\+row $\ast$ num\+\_\+col size. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -88,7 +88,7 @@ bool \mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ T, stor $
 
 
 
-Checks if the matrix is in the compressed state or not. 
+Checks if the \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} is in the compressed state or not. 
 
 \begin{DoxyReturn}{Returns}
 Bool indicating the compression status\+: true if compressed, false otherwise 
@@ -102,7 +102,7 @@ T \& \mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ T, stor $
 
 
 
-Read-\/\+Write access to an element of the matrix, resizing if inserting out-\/of-\/bounds. 
+Read-\/\+Write access to an element of the \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}, resizing if inserting out-\/of-\/bounds. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -112,7 +112,7 @@ Read-\/\+Write access to an element of the matrix, resizing if inserting out-\/o
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Reference to the element contained in the (i,j) cell of the matrix 
+Reference to the element contained in the (i,j) cell of the \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classalgebra_1_1Matrix_a93220537f734697e81cc93e4ca8bf95c}\label{classalgebra_1_1Matrix_a93220537f734697e81cc93e4ca8bf95c}} 
 \index{algebra::Matrix$<$ T, stor $>$@{algebra::Matrix$<$ T, stor $>$}!operator()@{operator()}}
@@ -123,7 +123,7 @@ T \mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ T, stor $>$\
 
 
 
-Read-\/only access to an element of the matrix. 
+Read-\/only access to an element of the \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -133,7 +133,7 @@ Read-\/only access to an element of the matrix.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Const reference to element contained in the (i,j) cell of the matrix ~\newline
+Const reference to element contained in the (i,j) cell of the \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} ~\newline
  
 \end{DoxyReturn}
 \mbox{\Hypertarget{classalgebra_1_1Matrix_a198db6fa9ebad880cf406c06be3034a4}\label{classalgebra_1_1Matrix_a198db6fa9ebad880cf406c06be3034a4}} 
@@ -145,7 +145,7 @@ void \mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ T, stor $
 
 
 
-Clears an existing matrix and fills it with the contents of a text file encoded in \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} Market format. 
+Clears an existing \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} and fills it with the contents of a text file encoded in Matrix-\/\+Market format. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -162,7 +162,7 @@ void \mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ T, stor $
 
 
 
-Resizes a matrix, eventually deleting out-\/of-\/bounds non-\/zero elements. 
+Resizes a \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}, eventually deleting out-\/of-\/bounds non-\/zero elements. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -183,7 +183,7 @@ std\+::vector$<$T$>$ operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{
 
 
 
-Performs matrix-\/vector product between two correctly-\/dimensioned containers of the same type. 
+Performs Matrix-\/vector product between two correctly-\/dimensioned containers of the same type. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -204,13 +204,13 @@ std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \
 
 
 
-Outputs the structure to the matrix in the input stream, with different outputs depending on the compression status. 
+Outputs the structure to the \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} in the input stream, with different outputs depending on the compression status. 
 
 
 \begin{DoxyParams}{Parameters}
 {\em str} & stream to manipulate \\
 \hline
-{\em mat} & matrix to output \\
+{\em mat} & \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} to output \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -220,4 +220,4 @@ output stream
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Matrix\+Row.\+hpp\end{DoxyCompactItemize}
+\mbox{\hyperlink{MatrixRow_8hpp}{Matrix\+Row.\+hpp}}\end{DoxyCompactItemize}

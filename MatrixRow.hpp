@@ -7,7 +7,10 @@
 #include <limits>
 #include <string>
 
-/// @brief Alias for the matrix map key
+/// @file MatrixRow.hpp
+/// @brief Contains the implementation of the row-major matrix class
+
+//Alias for the matrix map key
 using key = std::array<std::size_t,2>;
 
 namespace algebra{
