@@ -34,7 +34,7 @@ namespace algebra{
 
         /// @brief Vector containing the non-zero elements of the compressed matrix
         std::vector<T> val;
-        /// @brief Vector containing the number of non-zero elements above each row
+        /// @brief Vector containing the number of non-zero elements in all previous columns for each column
         std::vector<std::size_t> col_idx;
         /// @brief Vector indicating the row indices of the non-zero elements of the compressed matrix
         std::vector<std::size_t> row_idx;
@@ -45,33 +45,29 @@ namespace algebra{
         /// @param num_row Number of rows of the Matrix
         /// @param num_col Number of columns of the Matrix
         Matrix(std::size_t num_row, std::size_t num_col):num_row(num_row),num_col(num_col){};
+        Matrix() = default;
 
         /// @brief Read-Write access to an element of the matrix
-        /// @tparam T type of the matrix
         /// @param i row index
         /// @param j column index
         /// @return Reference to element contained in the (i,j) cell of the matrix
         T& operator()(std::size_t i, std::size_t j);
 
         /// @brief Read-only access to an element of the matrix
-        /// @tparam T type of the matrix
         /// @param i row index
         /// @param j column index
         /// @return Const reference to element contained in the (i,j) cell of the matrix
         T operator()(std::size_t i, std::size_t j) const;
 
         /// @brief Resizes a Matrix, eventually deleting out-of-bounds non-zero elements
-        /// @tparam T type of the Matrix
         /// @param new_row_num new number of rows 
         /// @param new_col_num new number of columns
-        void resize(std::size_t row_newsize, std::size_t new_col_num);
+        void resize(std::size_t new_row_num, std::size_t new_col_num);
 
-        /// @brief Compresses an uncompressed Matrix following the CSC paradigm, removing the uncompressed data from memory
-        /// @tparam T type of the Matrix
+        /// @brief Compresses an uncompressed Matrix in CSC form, removing the uncompressed matrix from memory
         void compress();
         
-        /// @brief Uncompresses a Matrix compressed with the CSC paradigm, removing the compressed data from memory
-        /// @tparam T type of the Matrix
+        /// @brief Uncompresses a Matrix compressed in CSC form, removing the compressed matrix from memory
         void uncompress();
 
         /// @brief Checks if the Matrix is in the compressed state or not
@@ -79,22 +75,19 @@ namespace algebra{
         bool is_compressed() const;
 
         /// @brief Outputs the structure to the matrix in the input stream, with different outputs depending on the compression status
-        /// @tparam T type of the Matrix
         /// @param str stream to manipulate
         /// @param mat matrix to output
         /// @return output stream
         friend std::ostream& operator<< <>(std::ostream& str, const Matrix<T,Col>& mat);
 
-        /// @brief Performs matrix-vector product between two correctly-dimensioned containers
-        /// @tparam T type of the containers
+        /// @brief Performs matrix-vector product between two correctly-dimensioned containers of the same type
         /// @param lhs Left hand side of the operation
         /// @param rhs Right hand side of the operation
         /// @return result vector
         friend std::vector<T> operator* <>(const Matrix<T,Col>& lhs, const std::vector<T>& rhs);
 
         /// @brief Fills an existing matrix with the contents of a text file encoded in Matrix Market format
-        /// @tparam T type of the Matrix
-        /// @param filename name of the file from which to read 
+        /// @param filename name of the file from which to read, positioned in the executable's directory 
         void read(std::string filename);
 
     };
