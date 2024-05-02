@@ -1,0 +1,123 @@
+\hypertarget{namespacealgebra}{}\doxysection{algebra Namespace Reference}
+\label{namespacealgebra}\index{algebra@{algebra}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structalgebra_1_1cmpCol}{cmp\+Col}}
+\begin{DoxyCompactList}\small\item\em custom comparator used for column-\/major matrices \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classalgebra_1_1Matrix_3_01T_00_01Col_01_4}{Matrix$<$ T, Col $>$}}
+\item 
+class \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}
+\begin{DoxyCompactList}\small\item\em Template \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} class encoded in COOmap form, and compressible in CSR / CSC form, depending on the ordering. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespacealgebra_af7f291bc9289c8ac99068a8ae4873108}{Storage\+Order}} \{ \mbox{\hyperlink{namespacealgebra_af7f291bc9289c8ac99068a8ae4873108ad3128f93da6e7a3db09a2be103a71173}{Row}}
+, \mbox{\hyperlink{namespacealgebra_af7f291bc9289c8ac99068a8ae4873108a32a00087afc661bf016aaff3a5898155}{Col}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumerator indicating the ordering of the matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{namespacealgebra_a15a394b15e7bc8925e39513683bbc9c9}{operator$\ast$}} (const \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}$<$ T, \mbox{\hyperlink{namespacealgebra_af7f291bc9289c8ac99068a8ae4873108a32a00087afc661bf016aaff3a5898155}{Col}} $>$ \&lhs, const std\+::vector$<$ T $>$ \&rhs)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \mbox{\hyperlink{namespacealgebra_a4b10b9ac7a1dbc43a3f278dd5fb2b3c3}{operator$<$$<$}} (std\+::ostream \&str, const \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}$<$ T, \mbox{\hyperlink{namespacealgebra_af7f291bc9289c8ac99068a8ae4873108a32a00087afc661bf016aaff3a5898155}{Col}} $>$ \&mat)
+\item 
+{\footnotesize template$<$typename T , Storage\+Order stor$>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{namespacealgebra_ad31cf3a4c910ef1b6dd357381aa5942f}{operator$\ast$}} (const \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}$<$ T, stor $>$ \&lhs, const std\+::vector$<$ T $>$ \&rhs)
+\item 
+{\footnotesize template$<$typename T , Storage\+Order stor$>$ }\\std\+::ostream \& \mbox{\hyperlink{namespacealgebra_a3251abbf21a9463d83b09c899d1505aa}{operator$<$$<$}} (std\+::ostream \&str, const \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}$<$ T, stor $>$ \&mat)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{namespacealgebra_af7f291bc9289c8ac99068a8ae4873108}\label{namespacealgebra_af7f291bc9289c8ac99068a8ae4873108}} 
+\index{algebra@{algebra}!StorageOrder@{StorageOrder}}
+\index{StorageOrder@{StorageOrder}!algebra@{algebra}}
+\doxysubsubsection{\texorpdfstring{StorageOrder}{StorageOrder}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacealgebra_af7f291bc9289c8ac99068a8ae4873108}{algebra\+::\+Storage\+Order}}}
+
+
+
+Enumerator indicating the ordering of the matrix. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Row@{Row}!algebra@{algebra}}\index{algebra@{algebra}!Row@{Row}}}\mbox{\Hypertarget{namespacealgebra_af7f291bc9289c8ac99068a8ae4873108ad3128f93da6e7a3db09a2be103a71173}\label{namespacealgebra_af7f291bc9289c8ac99068a8ae4873108ad3128f93da6e7a3db09a2be103a71173}} 
+Row&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Col@{Col}!algebra@{algebra}}\index{algebra@{algebra}!Col@{Col}}}\mbox{\Hypertarget{namespacealgebra_af7f291bc9289c8ac99068a8ae4873108a32a00087afc661bf016aaff3a5898155}\label{namespacealgebra_af7f291bc9289c8ac99068a8ae4873108a32a00087afc661bf016aaff3a5898155}} 
+Col&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacealgebra_a15a394b15e7bc8925e39513683bbc9c9}\label{namespacealgebra_a15a394b15e7bc8925e39513683bbc9c9}} 
+\index{algebra@{algebra}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!algebra@{algebra}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::vector$<$ T $>$ algebra\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}$<$ T, \mbox{\hyperlink{namespacealgebra_af7f291bc9289c8ac99068a8ae4873108a32a00087afc661bf016aaff3a5898155}{Col}} $>$ \&}]{lhs,  }\item[{const std\+::vector$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & Left hand side of the operation \\
+\hline
+{\em rhs} & Right hand side of the operation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+result vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacealgebra_ad31cf3a4c910ef1b6dd357381aa5942f}\label{namespacealgebra_ad31cf3a4c910ef1b6dd357381aa5942f}} 
+\index{algebra@{algebra}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!algebra@{algebra}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , Storage\+Order stor$>$ \\
+std\+::vector$<$ T $>$ algebra\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}$<$ T, stor $>$ \&}]{lhs,  }\item[{const std\+::vector$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & Left hand side of the operation \\
+\hline
+{\em rhs} & Right hand side of the operation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+result vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacealgebra_a4b10b9ac7a1dbc43a3f278dd5fb2b3c3}\label{namespacealgebra_a4b10b9ac7a1dbc43a3f278dd5fb2b3c3}} 
+\index{algebra@{algebra}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!algebra@{algebra}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::ostream \& algebra\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{str,  }\item[{const \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}$<$ T, \mbox{\hyperlink{namespacealgebra_af7f291bc9289c8ac99068a8ae4873108a32a00087afc661bf016aaff3a5898155}{Col}} $>$ \&}]{mat }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & stream to manipulate \\
+\hline
+{\em mat} & matrix to output \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+output stream 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacealgebra_a3251abbf21a9463d83b09c899d1505aa}\label{namespacealgebra_a3251abbf21a9463d83b09c899d1505aa}} 
+\index{algebra@{algebra}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!algebra@{algebra}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , Storage\+Order stor$>$ \\
+std\+::ostream \& algebra\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{str,  }\item[{const \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}$<$ T, stor $>$ \&}]{mat }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & stream to manipulate \\
+\hline
+{\em mat} & matrix to output \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+output stream 
+\end{DoxyReturn}

@@ -1,0 +1,31 @@
+\hypertarget{MatrixCol_8hpp}{}\doxysection{Matrix\+Col.\+hpp File Reference}
+\label{MatrixCol_8hpp}\index{MatrixCol.hpp@{MatrixCol.hpp}}
+{\ttfamily \#include \char`\"{}Matrix\+Row.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+Include dependency graph for Matrix\+Col.\+hpp\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structalgebra_1_1cmpCol}{algebra\+::cmp\+Col}}
+\begin{DoxyCompactList}\small\item\em custom comparator used for column-\/major matrices \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classalgebra_1_1Matrix_3_01T_00_01Col_01_4}{algebra\+::\+Matrix$<$ T, Col $>$}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacealgebra}{algebra}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{namespacealgebra_a15a394b15e7bc8925e39513683bbc9c9}{algebra\+::operator$\ast$}} (const Matrix$<$ T, Col $>$ \&lhs, const std\+::vector$<$ T $>$ \&rhs)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \mbox{\hyperlink{namespacealgebra_a4b10b9ac7a1dbc43a3f278dd5fb2b3c3}{algebra\+::operator$<$$<$}} (std\+::ostream \&str, const Matrix$<$ T, Col $>$ \&mat)
+\end{DoxyCompactItemize}

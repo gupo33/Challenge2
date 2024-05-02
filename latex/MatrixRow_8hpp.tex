@@ -1,0 +1,56 @@
+\hypertarget{MatrixRow_8hpp}{}\doxysection{Matrix\+Row.\+hpp File Reference}
+\label{MatrixRow_8hpp}\index{MatrixRow.hpp@{MatrixRow.hpp}}
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+Include dependency graph for Matrix\+Row.\+hpp\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix$<$ T, stor $>$}}
+\begin{DoxyCompactList}\small\item\em Template \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} class encoded in COOmap form, and compressible in CSR / CSC form, depending on the ordering. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacealgebra}{algebra}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{MatrixRow_8hpp_af9a0ab15319a8acb793b927014271fc3}{key}} = std\+::array$<$ std\+::size\+\_\+t, 2 $>$
+\begin{DoxyCompactList}\small\item\em Alias for the matrix map key. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespacealgebra_af7f291bc9289c8ac99068a8ae4873108}{algebra\+::\+Storage\+Order}} \{ \mbox{\hyperlink{namespacealgebra_af7f291bc9289c8ac99068a8ae4873108ad3128f93da6e7a3db09a2be103a71173}{algebra\+::\+Row}}
+, \mbox{\hyperlink{namespacealgebra_af7f291bc9289c8ac99068a8ae4873108a32a00087afc661bf016aaff3a5898155}{algebra\+::\+Col}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumerator indicating the ordering of the matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T , Storage\+Order stor$>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{namespacealgebra_ad31cf3a4c910ef1b6dd357381aa5942f}{algebra\+::operator$\ast$}} (const Matrix$<$ T, stor $>$ \&lhs, const std\+::vector$<$ T $>$ \&rhs)
+\item 
+{\footnotesize template$<$typename T , Storage\+Order stor$>$ }\\std\+::ostream \& \mbox{\hyperlink{namespacealgebra_a3251abbf21a9463d83b09c899d1505aa}{algebra\+::operator$<$$<$}} (std\+::ostream \&str, const Matrix$<$ T, stor $>$ \&mat)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{MatrixRow_8hpp_af9a0ab15319a8acb793b927014271fc3}\label{MatrixRow_8hpp_af9a0ab15319a8acb793b927014271fc3}} 
+\index{MatrixRow.hpp@{MatrixRow.hpp}!key@{key}}
+\index{key@{key}!MatrixRow.hpp@{MatrixRow.hpp}}
+\doxysubsubsection{\texorpdfstring{key}{key}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{MatrixRow_8hpp_af9a0ab15319a8acb793b927014271fc3}{key}} =  std\+::array$<$std\+::size\+\_\+t,2$>$}
+
+
+
+Alias for the matrix map key. 
+
