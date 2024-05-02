@@ -7,6 +7,19 @@
 #include <limits>
 #include <string>
 
+/*! \mainpage My Personal Index Page
+ *
+ * \section intro_sec Introduction
+ *
+ * This is the introduction.
+ *
+ * \section install_sec Installation
+ *
+ * \subsection step1 Step 1: Opening the box
+ *
+ * etc...
+ */
+
 /// @file MatrixRow.hpp
 /// @brief Contains the implementation of the row-major matrix class
 
@@ -24,7 +37,7 @@ namespace algebra{
     template <typename T, StorageOrder stor> std::vector<T> operator*(const Matrix<T,stor>& lhs, const std::vector<T>& rhs);
     template <typename T, StorageOrder stor> std::ostream& operator<<(std::ostream& str, const Matrix<T,stor>& mat);
 
-    /// @brief Template Matrix class encoded in COOmap form, and compressible in CSR / CSC form, depending on the ordering
+    /// @brief Template row-major Matrix class encoded in COOmap form, and compressible in CSR form, depending on the ordering
     /// @tparam T type of the elements of the Matrix
     /// @tparam stor Indicates how the Matrix is ordered (row-column major)
     template <typename T,StorageOrder stor> class Matrix{ 
