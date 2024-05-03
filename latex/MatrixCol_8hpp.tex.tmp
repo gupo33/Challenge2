@@ -2,15 +2,10 @@
 \label{MatrixCol_8hpp}\index{MatrixCol.hpp@{MatrixCol.hpp}}
 
 
-Contains the implementation of the column-\/major matrix class, as a specialization of the row-\/major case.  
+Contains the specialization of Matrix for a column-\/major matrix.  
 
 
 {\ttfamily \#include \char`\"{}Matrix\+Row.\+hpp\char`\"{}}\newline
-{\ttfamily \#include $<$map$>$}\newline
-{\ttfamily \#include $<$array$>$}\newline
-{\ttfamily \#include $<$vector$>$}\newline
-{\ttfamily \#include $<$iostream$>$}\newline
-{\ttfamily \#include $<$limits$>$}\newline
 Include dependency graph for Matrix\+Col.\+hpp\+:
 % FIG 0
 \doxysubsection*{Classes}
@@ -28,7 +23,7 @@ class \mbox{\hyperlink{classalgebra_1_1Matrix_3_01T_00_01Col_01_4}{algebra\+::\+
 
 
 \doxysubsection{Detailed Description}
-Contains the implementation of the column-\/major matrix class, as a specialization of the row-\/major case. 
+Contains the specialization of Matrix for a column-\/major matrix. 
 
 
 

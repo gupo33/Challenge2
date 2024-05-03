@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Matrix: algebra::Matrix&lt; T, stor &gt; Class Template Reference</title>
+<title>Matrix: Matrix.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -59,35 +59,56 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><b>algebra</b></li><li class="navelem"><a class="el" href="classalgebra_1_1Matrix.html">Matrix</a></li>  </ul>
-</div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
-<div class="title">algebra::Matrix&lt; T, stor &gt; Class Template Reference</div>  </div>
+<div class="title">Matrix.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Template <a class="el" href="classalgebra_1_1Matrix.html" title="Template Matrix class encoded in COOmap form, and compressible in CSR / CSC form, depending on the or...">Matrix</a> class encoded in COOmap form, and compressible in CSR / CSC form, depending on the ordering.  
- <a href="classalgebra_1_1Matrix.html#details">More...</a></p>
+<p>Contains the definition of the template class Matrix.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;map&gt;</code><br />
+<code>#include &lt;array&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;sstream&gt;</code><br />
+<code>#include &lt;limits&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for Matrix.hpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="Matrix_8hpp__incl.png" border="0" usemap="#aMatrix_8hpp" alt=""/></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="Matrix_8hpp__dep__incl.png" border="0" usemap="#aMatrix_8hppdep" alt=""/></div>
+</div>
+</div>
+<p><a href="Matrix_8hpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:af9a0ab15319a8acb793b927014271fc3"><td class="memItemLeft" align="right" valign="top"><a id="af9a0ab15319a8acb793b927014271fc3"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>key</b> = std::array&lt; std::size_t, 2 &gt;</td></tr>
+<tr class="separator:af9a0ab15319a8acb793b927014271fc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:af7f291bc9289c8ac99068a8ae4873108"><td class="memItemLeft" align="right" valign="top"><a id="af7f291bc9289c8ac99068a8ae4873108"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Matrix_8hpp.html#af7f291bc9289c8ac99068a8ae4873108">algebra::StorageOrder</a> { <b>Row</b>
+, <b>Col</b>
+ }</td></tr>
+<tr class="memdesc:af7f291bc9289c8ac99068a8ae4873108"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumerator indicating the ordering of the matrix. <br /></td></tr>
+<tr class="separator:af7f291bc9289c8ac99068a8ae4873108"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename T, StorageOrder stor&gt;<br />
-class algebra::Matrix&lt; T, stor &gt;</h3>
-
-<p>Template <a class="el" href="classalgebra_1_1Matrix.html" title="Template Matrix class encoded in COOmap form, and compressible in CSR / CSC form, depending on the or...">Matrix</a> class encoded in COOmap form, and compressible in CSR / CSC form, depending on the ordering. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>type of the elements of the <a class="el" href="classalgebra_1_1Matrix.html" title="Template Matrix class encoded in COOmap form, and compressible in CSR / CSC form, depending on the or...">Matrix</a> </td></tr>
-    <tr><td class="paramname">stor</td><td>Indicates how the <a class="el" href="classalgebra_1_1Matrix.html" title="Template Matrix class encoded in COOmap form, and compressible in CSR / CSC form, depending on the or...">Matrix</a> is ordered (row-column major) </td></tr>
-  </table>
-  </dd>
-</dl>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="Matrix_8hpp_source.html">Matrix.hpp</a></li>
-</ul>
-</div><!-- contents -->
+<div class="textblock"><p>Contains the definition of the template class Matrix. </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1

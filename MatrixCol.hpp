@@ -1,13 +1,7 @@
 #include "MatrixRow.hpp"
 
-#include <map>
-#include <array>
-#include <vector>
-#include <iostream>
-#include <limits>
-
 /// @file MatrixCol.hpp
-/// @brief Contains the implementation of the column-major matrix class, as a specialization of the row-major case
+/// @brief Contains the specialization of Matrix for a column-major matrix
 
 namespace algebra{
 

@@ -1,10 +1,7 @@
 #include "Matrix.hpp"
 
 /// @file MatrixRow.hpp
-/// @brief Contains the implementation of the row-major matrix class
-
-//Alias for the matrix map key
-using key = std::array<std::size_t,2>;
+/// @brief Contains the specialization of Matrix for a row-major matrix
 
 namespace algebra{
 
@@ -13,7 +10,7 @@ namespace algebra{
     template <typename T> std::vector<T> operator*(const Matrix<T,Row>& lhs, const std::vector<T>& rhs);
     template <typename T> std::ostream& operator<<(std::ostream& str, const Matrix<T,Row>& mat);
 
-    /// @brief Template row-major Matrix class encoded in COOmap form, and compressible in CSR form, depending on the ordering
+    /// @brief Template row-major Matrix class encoded in COOmap form, and compressible in CSR form
     /// @tparam T type of the elements of the Matrix
     /// @tparam stor Indicates how the Matrix is ordered (row-column major)
     template <typename T> class Matrix<T,Row>{ 
