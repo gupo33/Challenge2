@@ -64,7 +64,6 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
-<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">MatrixRow.hpp File Reference</div>  </div>
@@ -73,14 +72,7 @@ $(function() {
 
 <p>Contains the implementation of the row-major matrix class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;map&gt;</code><br />
-<code>#include &lt;array&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;fstream&gt;</code><br />
-<code>#include &lt;sstream&gt;</code><br />
-<code>#include &lt;limits&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
+<div class="textblock"><code>#include &quot;Matrix.hpp&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for MatrixRow.hpp:</div>
 <div class="dyncontent">
@@ -96,8 +88,8 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classalgebra_1_1Matrix.html">algebra::Matrix&lt; T, stor &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template row-major <a class="el" href="classalgebra_1_1Matrix.html" title="Template row-major Matrix class encoded in COOmap form, and compressible in CSR form,...">Matrix</a> class encoded in COOmap form, and compressible in CSR form, depending on the ordering.  <a href="classalgebra_1_1Matrix.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classalgebra_1_1Matrix_3_01T_00_01Row_01_4.html">algebra::Matrix&lt; T, Row &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template row-major <a class="el" href="classalgebra_1_1Matrix.html">Matrix</a> class encoded in COOmap form, and compressible in CSR form, depending on the ordering.  <a href="classalgebra_1_1Matrix_3_01T_00_01Row_01_4.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
@@ -106,38 +98,30 @@ Typedefs</h2></td></tr>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>key</b> = std::array&lt; std::size_t, 2 &gt;</td></tr>
 <tr class="separator:af9a0ab15319a8acb793b927014271fc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:af7f291bc9289c8ac99068a8ae4873108"><td class="memItemLeft" align="right" valign="top"><a id="af7f291bc9289c8ac99068a8ae4873108"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MatrixRow_8hpp.html#af7f291bc9289c8ac99068a8ae4873108">algebra::StorageOrder</a> { <b>Row</b>
-, <b>Col</b>
- }</td></tr>
-<tr class="memdesc:af7f291bc9289c8ac99068a8ae4873108"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumerator indicating the ordering of the matrix. <br /></td></tr>
-<tr class="separator:af7f291bc9289c8ac99068a8ae4873108"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ad31cf3a4c910ef1b6dd357381aa5942f"><td class="memTemplParams" colspan="2">template&lt;typename T , StorageOrder stor&gt; </td></tr>
-<tr class="memitem:ad31cf3a4c910ef1b6dd357381aa5942f"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="MatrixRow_8hpp.html#ad31cf3a4c910ef1b6dd357381aa5942f">algebra::operator*</a> (const Matrix&lt; T, stor &gt; &amp;lhs, const std::vector&lt; T &gt; &amp;rhs)</td></tr>
-<tr class="separator:ad31cf3a4c910ef1b6dd357381aa5942f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3251abbf21a9463d83b09c899d1505aa"><td class="memTemplParams" colspan="2">template&lt;typename T , StorageOrder stor&gt; </td></tr>
-<tr class="memitem:a3251abbf21a9463d83b09c899d1505aa"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="MatrixRow_8hpp.html#a3251abbf21a9463d83b09c899d1505aa">algebra::operator&lt;&lt;</a> (std::ostream &amp;str, const Matrix&lt; T, stor &gt; &amp;mat)</td></tr>
-<tr class="separator:a3251abbf21a9463d83b09c899d1505aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d6927b1049bc0b8d481055e437e2f8f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a7d6927b1049bc0b8d481055e437e2f8f"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="MatrixRow_8hpp.html#a7d6927b1049bc0b8d481055e437e2f8f">algebra::operator*</a> (const Matrix&lt; T, Row &gt; &amp;lhs, const std::vector&lt; T &gt; &amp;rhs)</td></tr>
+<tr class="separator:a7d6927b1049bc0b8d481055e437e2f8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcd304cba62d992998af1e508c66f267"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:abcd304cba62d992998af1e508c66f267"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="MatrixRow_8hpp.html#abcd304cba62d992998af1e508c66f267">algebra::operator&lt;&lt;</a> (std::ostream &amp;str, const Matrix&lt; T, Row &gt; &amp;mat)</td></tr>
+<tr class="separator:abcd304cba62d992998af1e508c66f267"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains the implementation of the row-major matrix class. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="ad31cf3a4c910ef1b6dd357381aa5942f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad31cf3a4c910ef1b6dd357381aa5942f">&#9670;&nbsp;</a></span>operator*()</h2>
+<a id="a7d6927b1049bc0b8d481055e437e2f8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d6927b1049bc0b8d481055e437e2f8f">&#9670;&nbsp;</a></span>operator*()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , StorageOrder stor&gt; </div>
+template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">std::vector&lt; T &gt; algebra::operator* </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classalgebra_1_1Matrix.html">Matrix</a>&lt; T, stor &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classalgebra_1_1Matrix.html">Matrix</a>&lt; T, Row &gt; &amp;&#160;</td>
           <td class="paramname"><em>lhs</em>, </td>
         </tr>
         <tr>
@@ -164,13 +148,13 @@ template&lt;typename T , StorageOrder stor&gt; </div>
 
 </div>
 </div>
-<a id="a3251abbf21a9463d83b09c899d1505aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3251abbf21a9463d83b09c899d1505aa">&#9670;&nbsp;</a></span>operator&lt;&lt;()</h2>
+<a id="abcd304cba62d992998af1e508c66f267"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcd304cba62d992998af1e508c66f267">&#9670;&nbsp;</a></span>operator&lt;&lt;()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , StorageOrder stor&gt; </div>
+template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">std::ostream &amp; algebra::operator&lt;&lt; </td>
@@ -181,7 +165,7 @@ template&lt;typename T , StorageOrder stor&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classalgebra_1_1Matrix.html">Matrix</a>&lt; T, stor &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classalgebra_1_1Matrix.html">Matrix</a>&lt; T, Row &gt; &amp;&#160;</td>
           <td class="paramname"><em>mat</em>&#160;</td>
         </tr>
         <tr>

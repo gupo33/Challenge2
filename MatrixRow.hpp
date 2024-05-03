@@ -1,24 +1,4 @@
-#include <map>
-#include <array>
-#include <vector>
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <limits>
-#include <string>
-
-/*! \mainpage My Personal Index Page
- *
- * \section intro_sec Introduction
- *
- * This is the introduction.
- *
- * \section install_sec Installation
- *
- * \subsection step1 Step 1: Opening the box
- *
- * etc...
- */
+#include "Matrix.hpp"
 
 /// @file MatrixRow.hpp
 /// @brief Contains the implementation of the row-major matrix class
@@ -28,19 +8,15 @@ using key = std::array<std::size_t,2>;
 
 namespace algebra{
 
-    /// @brief Enumerator indicating the ordering of the matrix
-    enum StorageOrder {Row, Col};
-
     //pre-declarations needed for template friends
 
-    template <typename T,StorageOrder stor> class Matrix;
-    template <typename T, StorageOrder stor> std::vector<T> operator*(const Matrix<T,stor>& lhs, const std::vector<T>& rhs);
-    template <typename T, StorageOrder stor> std::ostream& operator<<(std::ostream& str, const Matrix<T,stor>& mat);
+    template <typename T> std::vector<T> operator*(const Matrix<T,Row>& lhs, const std::vector<T>& rhs);
+    template <typename T> std::ostream& operator<<(std::ostream& str, const Matrix<T,Row>& mat);
 
     /// @brief Template row-major Matrix class encoded in COOmap form, and compressible in CSR form, depending on the ordering
     /// @tparam T type of the elements of the Matrix
     /// @tparam stor Indicates how the Matrix is ordered (row-column major)
-    template <typename T,StorageOrder stor> class Matrix{ 
+    template <typename T> class Matrix<T,Row>{ 
     private:
         /// @brief Container for the elements of the uncompressed Matrix, in COOmap form
         std::map<key,T> data;
@@ -96,13 +72,13 @@ namespace algebra{
         /// @param str stream to manipulate
         /// @param mat Matrix to output
         /// @return output stream
-        friend std::ostream& operator<< <>(std::ostream& str, const Matrix<T,stor>& mat);
+        friend std::ostream& operator<< <>(std::ostream& str, const Matrix<T,Row>& mat);
 
         /// @brief Performs Matrix-vector product between two correctly-dimensioned containers of the same type
         /// @param lhs Left hand side of the operation
         /// @param rhs Right hand side of the operation
         /// @return result vector
-        friend std::vector<T> operator* <>(const Matrix<T,stor>& lhs, const std::vector<T>& rhs);
+        friend std::vector<T> operator* <>(const Matrix<T,Row>& lhs, const std::vector<T>& rhs);
 
         /// @brief Clears an existing Matrix and fills it with the contents of a text file encoded in Matrix-Market format
         /// @param filename name of the file from which to read, positioned in the executable's directory 
@@ -110,7 +86,7 @@ namespace algebra{
 
     };
 
-    template<typename T, StorageOrder stor> T& Matrix<T,stor>::operator()(std::size_t i, std::size_t j){
+    template<typename T> T& Matrix<T,Row>::operator()(std::size_t i, std::size_t j){
         auto it = data.find({i,j});
         if(it!=data.end()){
             return it->second;
@@ -123,7 +99,7 @@ namespace algebra{
         }
     }
 
-    template<typename T, StorageOrder stor> T Matrix<T,stor>::operator()(std::size_t i, std::size_t j) const{
+    template<typename T> T Matrix<T,Row>::operator()(std::size_t i, std::size_t j) const{
         auto it = data.find({i,j});
         if(it!=data.end()){
             return it->second;
@@ -133,7 +109,7 @@ namespace algebra{
         }
     }
 
-    template<typename T, StorageOrder stor> std::ostream& operator<<(std::ostream& str, const Matrix<T,stor>& mat){
+    template<typename T> std::ostream& operator<<(std::ostream& str, const Matrix<T,Row>& mat){
         if(!mat.is_compressed()){
             for(std::size_t i = 0; i<mat.num_row;++i){
                 for(std::size_t j = 0; j<mat.num_col;++j){
@@ -165,7 +141,7 @@ namespace algebra{
 
     }
 
-    template<typename T, StorageOrder stor> void Matrix<T,stor>::resize(std::size_t new_row_num, std::size_t new_col_num){
+    template<typename T> void Matrix<T,Row>::resize(std::size_t new_row_num, std::size_t new_col_num){
         #ifdef DEBUG
             std::cout << "started resizing" << std::endl;
         #endif
@@ -191,7 +167,7 @@ namespace algebra{
         }
     }
 
-    template<typename T, StorageOrder stor> void Matrix<T,stor>::compress(){
+    template<typename T> void Matrix<T,Row>::compress(){
         #ifdef DEBUG
             std::cout << "started compressing" << std::endl;
         #endif
@@ -237,11 +213,11 @@ namespace algebra{
         #endif
     }
 
-    template<typename T, StorageOrder stor> bool Matrix<T,stor>::is_compressed() const{
+    template<typename T> bool Matrix<T,Row>::is_compressed() const{
         return data.empty() && !val.empty(); //if matrix is empty (i.e. val is also empty), it's not compressed
     }
 
-    template<typename T, StorageOrder stor> void Matrix<T,stor>::uncompress(){
+    template<typename T> void Matrix<T,Row>::uncompress(){
         if(is_compressed()){
             int j=0;//row index for the matrix
             int i=0; //index for the vector of values
@@ -265,7 +241,7 @@ namespace algebra{
         }
     }
 
-    template<typename T, StorageOrder stor> std::vector<T> operator*(const Matrix<T,stor>& lhs, const std::vector<T>& rhs){
+    template<typename T> std::vector<T> operator*(const Matrix<T,Row>& lhs, const std::vector<T>& rhs){
         std::vector<T> result;
         result.resize(lhs.num_row);
         if(!lhs.is_compressed()){
@@ -293,7 +269,7 @@ namespace algebra{
         return(result);
     }
 
-    template<typename T, StorageOrder stor> void Matrix<T,stor>::read(std::string filename){
+    template<typename T> void Matrix<T,Row>::read(std::string filename){
 
         this->data.clear(); //clears what was contained previously in the matrix
 

@@ -16,8 +16,6 @@ Include dependency graph for Matrix\+Col.\+hpp\+:
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-struct \mbox{\hyperlink{structalgebra_1_1cmpCol}{algebra\+::cmp\+Col}}
-\item 
 class \mbox{\hyperlink{classalgebra_1_1Matrix_3_01T_00_01Col_01_4}{algebra\+::\+Matrix$<$ T, Col $>$}}
 \begin{DoxyCompactList}\small\item\em Template column-\/major \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} class encoded in COOmap form, and compressible in CSC form. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
