@@ -12,7 +12,6 @@ namespace algebra{
 
     /// @brief Template row-major Matrix class encoded in COOmap form, and compressible in CSR form
     /// @tparam T type of the elements of the Matrix
-    /// @tparam stor Indicates how the Matrix is ordered (row-column major)
     template <typename T> class Matrix<T,Row>{ 
     private:
         /// @brief Container for the elements of the uncompressed Matrix, in COOmap form
@@ -143,8 +142,8 @@ namespace algebra{
             std::cout << "started resizing" << std::endl;
         #endif
         if(!is_compressed()){
-            if(new_row_num < num_row || new_col_num < num_col){
-                for(auto elem = data.begin(); elem != data.end();){
+            if(new_row_num < num_row || new_col_num < num_col){ //erase out-of-bounds elements
+                for(auto elem = data.begin(); elem != data.end();){ 
                     if(elem->first[0] >= new_row_num || elem->first[1] >= new_col_num){
                         #ifdef DEBUG
                             std::cout << "erased element in position" << elem->first[0] << "," << elem->first[1] << std::endl;

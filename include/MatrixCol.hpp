@@ -152,7 +152,7 @@ namespace algebra{
             std::cout << "started resizing" << std::endl;
         #endif
         if(!is_compressed()){
-            if(new_row_num < num_row || new_col_num < num_col){
+            if(new_row_num < num_row || new_col_num < num_col){ //erase out-of-bounds elements
                 for(auto elem = data.begin(); elem != data.end();){
                     if(elem->first[0] >= new_row_num || elem->first[1] >= new_col_num){
                         #ifdef DEBUG
