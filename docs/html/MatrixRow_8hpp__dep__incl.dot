@@ -5,5 +5,9 @@ digraph "/home/azureuser/project/Challenge2/include/MatrixRow.hpp"
   node [fontname="Helvetica",fontsize="10",shape=record];
   Node1 [label="/home/azureuser/project\l/Challenge2/include/MatrixRow.hpp",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Contains the specialization of Matrix for a row-major matrix."];
   Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node2 [label="/home/azureuser/project\l/Challenge2/include/MatrixCol.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$MatrixCol_8hpp.html",tooltip="Contains the specialization of Matrix for a column-major matrix."];
+  Node2 [label="/home/azureuser/project\l/Challenge2/include/MatrixRow\lCmpx.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$MatrixRowCmpx_8hpp.html",tooltip="Contains the specialization of Matrix for a row-major matrix, containing complex numbers."];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="/home/azureuser/project\l/Challenge2/include/MatrixCol.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$MatrixCol_8hpp.html",tooltip="Contains the specialization of Matrix for a column-major matrix."];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="/home/azureuser/project\l/Challenge2/include/MatrixCol\lCmpx.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$MatrixColCmpx_8hpp.html",tooltip="Contains the specialization of Matrix for a column-major matrix, containing complex numbers."];
 }

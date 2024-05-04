@@ -1,9 +1,7 @@
-#include "include/MatrixCol.hpp"
+#include "include/MatrixColCmpx.hpp"
 #include <chrono>
 
 using namespace algebra;
-
-/*
 
 int main(int argc, const char* argv[]){
 
@@ -46,16 +44,6 @@ int main(int argc, const char* argv[]){
 
     t_end = std::chrono::high_resolution_clock::now();
     std::cout << "Elapsed time is " << (t_end-t_start).count()*1E-9 << " seconds\n";
-}
 
-*/
-
-int main(){
-    Matrix<std::complex<double>,Row> mat;
-
-    mat(3,3) = {1,1};
-
-    mat.compress();
-
-    std::cout << mat;
+    return 0;
 }

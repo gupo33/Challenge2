@@ -69,7 +69,7 @@ $(function() {
 <div class="title">MatrixCol.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="MatrixCol_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="MatrixRow_8hpp.html">MatrixRow.hpp</a>&quot;</span></div>
+<a href="MatrixCol_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="MatrixRowCmpx_8hpp.html">MatrixRowCmpx.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span>algebra{</div>
@@ -91,8 +91,8 @@ $(function() {
 <div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classalgebra_1_1Matrix_3_01T_00_01Col_01_4.html">   24</a></span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="keyword">class </span><a class="code" href="classalgebra_1_1Matrix.html">Matrix</a>&lt;T,Col&gt;{ </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        std::map&lt;key,T,cmpCol&gt; data;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        std::size_t num_row;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        std::size_t num_col;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        std::size_t num_row = 0;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        std::size_t num_col = 0;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        std::vector&lt;T&gt; val;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        std::vector&lt;std::size_t&gt; col_idx;</div>
@@ -349,7 +349,7 @@ $(function() {
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;}</div>
 <div class="ttc" id="aMatrixCol_8hpp_html_a15a394b15e7bc8925e39513683bbc9c9"><div class="ttname"><a href="MatrixCol_8hpp.html#a15a394b15e7bc8925e39513683bbc9c9">algebra::operator*</a></div><div class="ttdeci">std::vector&lt; T &gt; operator*(const Matrix&lt; T, Col &gt; &amp;lhs, const std::vector&lt; T &gt; &amp;rhs)</div><div class="ttdef"><b>Definition:</b> MatrixCol.hpp:250</div></div>
 <div class="ttc" id="aMatrixCol_8hpp_html_a4b10b9ac7a1dbc43a3f278dd5fb2b3c3"><div class="ttname"><a href="MatrixCol_8hpp.html#a4b10b9ac7a1dbc43a3f278dd5fb2b3c3">algebra::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;str, const Matrix&lt; T, Col &gt; &amp;mat)</div><div class="ttdef"><b>Definition:</b> MatrixCol.hpp:118</div></div>
-<div class="ttc" id="aMatrixRow_8hpp_html"><div class="ttname"><a href="MatrixRow_8hpp.html">MatrixRow.hpp</a></div><div class="ttdoc">Contains the specialization of Matrix for a row-major matrix.</div></div>
+<div class="ttc" id="aMatrixRowCmpx_8hpp_html"><div class="ttname"><a href="MatrixRowCmpx_8hpp.html">MatrixRowCmpx.hpp</a></div><div class="ttdoc">Contains the specialization of Matrix for a row-major matrix, containing complex numbers.</div></div>
 <div class="ttc" id="aclassalgebra_1_1Matrix_3_01T_00_01Col_01_4_html"><div class="ttname"><a href="classalgebra_1_1Matrix_3_01T_00_01Col_01_4.html">algebra::Matrix&lt; T, Col &gt;</a></div><div class="ttdoc">Template column-major Matrix class encoded in COOmap form, and compressible in CSC form.</div><div class="ttdef"><b>Definition:</b> MatrixCol.hpp:24</div></div>
 <div class="ttc" id="aclassalgebra_1_1Matrix_3_01T_00_01Col_01_4_html_a48cfb09d2d3e57a490868638ee01c7c9"><div class="ttname"><a href="classalgebra_1_1Matrix_3_01T_00_01Col_01_4.html#a48cfb09d2d3e57a490868638ee01c7c9">algebra::Matrix&lt; T, Col &gt;::Matrix</a></div><div class="ttdeci">Matrix()=default</div><div class="ttdoc">Default constructor generating an empty Matrix.</div></div>
 <div class="ttc" id="aclassalgebra_1_1Matrix_3_01T_00_01Col_01_4_html_aab95048b07893b0a8bc8ec5cb5db1308"><div class="ttname"><a href="classalgebra_1_1Matrix_3_01T_00_01Col_01_4.html#aab95048b07893b0a8bc8ec5cb5db1308">algebra::Matrix&lt; T, Col &gt;::Matrix</a></div><div class="ttdeci">Matrix(std::size_t num_row, std::size_t num_col)</div><div class="ttdoc">Generates a Matrix with num_row * num_col size elements.</div><div class="ttdef"><b>Definition:</b> MatrixCol.hpp:45</div></div>

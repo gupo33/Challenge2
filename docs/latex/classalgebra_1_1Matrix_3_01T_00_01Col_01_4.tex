@@ -25,10 +25,10 @@ void \mbox{\hyperlink{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_a69a3d4096ea57e
 \begin{DoxyCompactList}\small\item\em Resizes a \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}, eventually deleting out-\/of-\/bounds non-\/zero elements. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_a8e4257508254a69b68856e96fc92fe34}\label{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_a8e4257508254a69b68856e96fc92fe34}} 
 void \mbox{\hyperlink{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_a8e4257508254a69b68856e96fc92fe34}{compress}} ()
-\begin{DoxyCompactList}\small\item\em Compresses an uncompressed \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} in CSC form, removing the uncompressed data from memory. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Compresses an uncompressed \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} in CSC form, removing the uncompressed \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} from memory. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_a5747a92b6c57046035496bf469cd532f}\label{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_a5747a92b6c57046035496bf469cd532f}} 
 void \mbox{\hyperlink{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_a5747a92b6c57046035496bf469cd532f}{uncompress}} ()
-\begin{DoxyCompactList}\small\item\em Uncompresses a \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} compressed in CSC form, removing the compressed data from memory. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Uncompresses a \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} compressed in CSC form, removing the compressed \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} from memory. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_afbdf2372836fd184bdf52dddf7c8a914}{is\+\_\+compressed}} () const
 \begin{DoxyCompactList}\small\item\em Checks if the \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} is in the compressed state or not. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_af489e3a69a7bcf1da5c54bfd173f46b7}{read}} (std\+::string filename)
@@ -104,13 +104,13 @@ Read-\/\+Write access to an element of the \mbox{\hyperlink{classalgebra_1_1Matr
 
 
 \begin{DoxyParams}{Parameters}
-{\em i} & row index \\
+{\em i} & Row index \\
 \hline
-{\em j} & column index \\
+{\em j} & Column index \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Reference to element contained in the (i,j) cell of the matrix 
+Reference to the element contained in the (i,j) cell of the \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_a4fc87738facdc5fd91195379d1156b82}\label{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_a4fc87738facdc5fd91195379d1156b82}} 
 \index{algebra::Matrix$<$ T, Col $>$@{algebra::Matrix$<$ T, Col $>$}!operator()@{operator()}}
@@ -131,7 +131,7 @@ Read-\/only access to an element of the \mbox{\hyperlink{classalgebra_1_1Matrix}
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Const reference to element contained in the (i,j) cell of the matrix 
+Const reference to element contained in the (i,j) cell of the \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_af489e3a69a7bcf1da5c54bfd173f46b7}\label{classalgebra_1_1Matrix_3_01T_00_01Col_01_4_af489e3a69a7bcf1da5c54bfd173f46b7}} 
 \index{algebra::Matrix$<$ T, Col $>$@{algebra::Matrix$<$ T, Col $>$}!read@{read}}
@@ -146,7 +146,7 @@ Clears an existing \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} and fills i
 
 
 \begin{DoxyParams}{Parameters}
-{\em filename} & name of the file from which to read ~\newline
+{\em filename} & name of the file from which to read, positioned in the executable\textquotesingle{}s directory ~\newline
  \\
 \hline
 \end{DoxyParams}
@@ -163,9 +163,9 @@ Resizes a \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}, eventually deleting
 
 
 \begin{DoxyParams}{Parameters}
-{\em new\+\_\+row\+\_\+num} & new number of rows \\
+{\em new\+\_\+row\+\_\+num} & New number of rows \\
 \hline
-{\em new\+\_\+col\+\_\+num} & new number of columns \\
+{\em new\+\_\+col\+\_\+num} & New number of columns \\
 \hline
 \end{DoxyParams}
 
@@ -207,7 +207,7 @@ Outputs the structure to the \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} i
 \begin{DoxyParams}{Parameters}
 {\em str} & stream to manipulate \\
 \hline
-{\em mat} & matrix to output \\
+{\em mat} & \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} to output \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

@@ -99,11 +99,11 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a69a3d4096ea57e83d7cd700375350194"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e4257508254a69b68856e96fc92fe34"><td class="memItemLeft" align="right" valign="top"><a id="a8e4257508254a69b68856e96fc92fe34"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classalgebra_1_1Matrix_3_01T_00_01Col_01_4.html#a8e4257508254a69b68856e96fc92fe34">compress</a> ()</td></tr>
-<tr class="memdesc:a8e4257508254a69b68856e96fc92fe34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compresses an uncompressed <a class="el" href="classalgebra_1_1Matrix.html" title="Template Matrix class encoded in COOmap form, and compressible in CSR / CSC form, depending on the or...">Matrix</a> in CSC form, removing the uncompressed data from memory. <br /></td></tr>
+<tr class="memdesc:a8e4257508254a69b68856e96fc92fe34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compresses an uncompressed <a class="el" href="classalgebra_1_1Matrix.html" title="Template Matrix class encoded in COOmap form, and compressible in CSR / CSC form, depending on the or...">Matrix</a> in CSC form, removing the uncompressed <a class="el" href="classalgebra_1_1Matrix.html" title="Template Matrix class encoded in COOmap form, and compressible in CSR / CSC form, depending on the or...">Matrix</a> from memory. <br /></td></tr>
 <tr class="separator:a8e4257508254a69b68856e96fc92fe34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5747a92b6c57046035496bf469cd532f"><td class="memItemLeft" align="right" valign="top"><a id="a5747a92b6c57046035496bf469cd532f"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classalgebra_1_1Matrix_3_01T_00_01Col_01_4.html#a5747a92b6c57046035496bf469cd532f">uncompress</a> ()</td></tr>
-<tr class="memdesc:a5747a92b6c57046035496bf469cd532f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uncompresses a <a class="el" href="classalgebra_1_1Matrix.html" title="Template Matrix class encoded in COOmap form, and compressible in CSR / CSC form, depending on the or...">Matrix</a> compressed in CSC form, removing the compressed data from memory. <br /></td></tr>
+<tr class="memdesc:a5747a92b6c57046035496bf469cd532f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uncompresses a <a class="el" href="classalgebra_1_1Matrix.html" title="Template Matrix class encoded in COOmap form, and compressible in CSR / CSC form, depending on the or...">Matrix</a> compressed in CSC form, removing the compressed <a class="el" href="classalgebra_1_1Matrix.html" title="Template Matrix class encoded in COOmap form, and compressible in CSR / CSC form, depending on the or...">Matrix</a> from memory. <br /></td></tr>
 <tr class="separator:a5747a92b6c57046035496bf469cd532f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afbdf2372836fd184bdf52dddf7c8a914"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classalgebra_1_1Matrix_3_01T_00_01Col_01_4.html#afbdf2372836fd184bdf52dddf7c8a914">is_compressed</a> () const</td></tr>
 <tr class="memdesc:afbdf2372836fd184bdf52dddf7c8a914"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the <a class="el" href="classalgebra_1_1Matrix.html" title="Template Matrix class encoded in COOmap form, and compressible in CSR / CSC form, depending on the or...">Matrix</a> is in the compressed state or not.  <a href="classalgebra_1_1Matrix_3_01T_00_01Col_01_4.html#afbdf2372836fd184bdf52dddf7c8a914">More...</a><br /></td></tr>
@@ -231,12 +231,12 @@ template&lt;typename T &gt; </div>
 <p>Read-Write access to an element of the <a class="el" href="classalgebra_1_1Matrix.html" title="Template Matrix class encoded in COOmap form, and compressible in CSR / CSC form, depending on the or...">Matrix</a>, resizing if inserting out-of-bounds. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>row index </td></tr>
-    <tr><td class="paramname">j</td><td>column index </td></tr>
+    <tr><td class="paramname">i</td><td>Row index </td></tr>
+    <tr><td class="paramname">j</td><td>Column index </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to element contained in the (i,j) cell of the matrix </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the element contained in the (i,j) cell of the <a class="el" href="classalgebra_1_1Matrix.html" title="Template Matrix class encoded in COOmap form, and compressible in CSR / CSC form, depending on the or...">Matrix</a> </dd></dl>
 
 </div>
 </div>
@@ -276,7 +276,7 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Const reference to element contained in the (i,j) cell of the matrix </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Const reference to element contained in the (i,j) cell of the <a class="el" href="classalgebra_1_1Matrix.html" title="Template Matrix class encoded in COOmap form, and compressible in CSR / CSC form, depending on the or...">Matrix</a> </dd></dl>
 
 </div>
 </div>
@@ -301,7 +301,7 @@ template&lt;typename T &gt; </div>
 <p>Clears an existing <a class="el" href="classalgebra_1_1Matrix.html" title="Template Matrix class encoded in COOmap form, and compressible in CSR / CSC form, depending on the or...">Matrix</a> and fills it with the contents of a text file encoded in Matrix-Market format. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">filename</td><td>name of the file from which to read <br  />
+    <tr><td class="paramname">filename</td><td>name of the file from which to read, positioned in the executable's directory <br  />
  </td></tr>
   </table>
   </dd>
@@ -340,8 +340,8 @@ template&lt;typename T &gt; </div>
 <p>Resizes a <a class="el" href="classalgebra_1_1Matrix.html" title="Template Matrix class encoded in COOmap form, and compressible in CSR / CSC form, depending on the or...">Matrix</a>, eventually deleting out-of-bounds non-zero elements. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">new_row_num</td><td>new number of rows </td></tr>
-    <tr><td class="paramname">new_col_num</td><td>new number of columns </td></tr>
+    <tr><td class="paramname">new_row_num</td><td>New number of rows </td></tr>
+    <tr><td class="paramname">new_col_num</td><td>New number of columns </td></tr>
   </table>
   </dd>
 </dl>
@@ -437,7 +437,7 @@ template&lt;typename T &gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">str</td><td>stream to manipulate </td></tr>
-    <tr><td class="paramname">mat</td><td>matrix to output </td></tr>
+    <tr><td class="paramname">mat</td><td><a class="el" href="classalgebra_1_1Matrix.html" title="Template Matrix class encoded in COOmap form, and compressible in CSR / CSC form, depending on the or...">Matrix</a> to output </td></tr>
   </table>
   </dd>
 </dl>

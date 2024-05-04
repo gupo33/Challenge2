@@ -1,7 +1,7 @@
 #include "MatrixCol.hpp"
 
-/// @file MatrixRow.hpp
-/// @brief Contains the specialization of Matrix for a row-major matrix
+/// @file MatrixColCmpx.hpp
+/// @brief Contains the specialization of Matrix for a column-major matrix, containing complex numbers
 
 namespace algebra{
 
@@ -10,12 +10,12 @@ namespace algebra{
     template <typename T> std::vector<std::complex<T>> operator*(const Matrix<std::complex<T>,Col>& lhs, const std::vector<std::complex<T>>& rhs);
     template <typename T> std::ostream& operator<<(std::ostream& str, const Matrix<std::complex<T>,Col>& mat);
 
-    /// @brief Template row-major Matrix class encoded in COOmap form, and compressible in CSR form
-    /// @tparam T type of the elements of the Matrix
+    /// @brief Template column-major Matrix class encoded in COOmap form, and compressible in CSC form, containing complex numbers
+    /// @tparam T type of the complex numbers contained in the Matrix
     template <typename T> class Matrix<std::complex<T>,Col>{ 
     private:
         /// @brief Container for the elements of the uncompressed Matrix, in COOmap form
-        std::map<key,std::complex<T>> data;
+        std::map<key,std::complex<T>,cmpCol> data;
         /// @brief Number of rows of the Matrix
         std::size_t num_row = 0;
         /// @brief Number of columns of the Matrix
@@ -23,15 +23,15 @@ namespace algebra{
 
         /// @brief Vector containing the non-zero elements of the compressed Matrix
         std::vector<std::complex<T>> val;
-        /// @brief  Vector indicating the column indices of the non-zero elements of the compressed Matrix
+        /// @brief Vector containing the number of non-zero elements above each row
         std::vector<std::size_t> col_idx;
-        /// @brief Vector containing the number of non-zero elements in all previous rows for each row
+        /// @brief Vector indicating the row indices of the non-zero elements of the compressed Matrix
         std::vector<std::size_t> row_idx;
 
     public:
         /// @brief Generates a Matrix with num_row * num_col size elements
-        /// @param num_row Number of rows of the matrix
-        /// @param num_col Number of columns of the matrix
+        /// @param num_row Number of rows of the Matrix
+        /// @param num_col Number of columns of the Matrix
         Matrix(std::size_t num_row, std::size_t num_col):num_row(num_row),num_col(num_col){};
         
         /// @brief Default constructor generating an empty Matrix
@@ -54,10 +54,10 @@ namespace algebra{
         /// @param new_col_num New number of columns
         void resize(std::size_t new_row_num, std::size_t new_col_num);
 
-        /// @brief Compresses an uncompressed Matrix in CSR form, removing the uncompressed matrix from memory
+        /// @brief Compresses an uncompressed Matrix in CSC form, removing the uncompressed Matrix from memory
         void compress();
 
-        /// @brief Uncompresses a Matrix compressed in CSR form, removing the compressed matrix from memory
+        /// @brief Uncompresses a Matrix compressed in CSC form, removing the compressed Matrix from memory
         void uncompress();
  
         /// @brief Checks if the Matrix is in the compressed state or not
@@ -121,14 +121,14 @@ namespace algebra{
             }
             std::cout << std::endl;
 
-            std::cout << "col_idx: ";
-            for(auto i : mat.col_idx){
+            std::cout << "row_idx: ";
+            for(auto i : mat.row_idx){
                 std::cout << i << " ";
             }
             std::cout << std::endl;
 
-            std::cout << "row_idx: ";
-            for(auto i : mat.row_idx){
+            std::cout << "col_idx: ";
+            for(auto i : mat.col_idx){
                 std::cout << i << " ";
             }
             std::cout << std::endl;
@@ -169,18 +169,18 @@ namespace algebra{
         #endif
 
         //initialize vectors
-        row_idx.resize(num_row+1);
+        col_idx.resize(num_col+1);
 
         if(!is_compressed()){
-           for(std::size_t i = 0; i<num_row;++i){
+           for(std::size_t i = 0; i<num_col;++i){
 
-                row_idx[i+1]+=row_idx[i];
+                col_idx[i+1]+=col_idx[i];
 
-                for(auto elem = data.lower_bound({i,0}); elem!= data.upper_bound({i,num_col}); ++elem){
-                    if(elem->second.real() != 0 || elem->second.imag() != 0){
+                for(auto elem = data.lower_bound({0,i}); elem!= data.upper_bound({num_row,i}); ++elem){
+                    if(elem->second.real()!=0 || elem->second.imag()!=0){
                         val.push_back(elem->second);
-                        col_idx.push_back(elem->first[1]);
-                        row_idx[i+1]++;
+                        row_idx.push_back(elem->first[0]);
+                        col_idx[i+1]++;
                         #ifdef DEBUG
                             std::cout << "inserted element in position " << i <<","<<elem->first[1] <<std::endl;
                             std::cout << "val: " << std::endl;
@@ -188,13 +188,13 @@ namespace algebra{
                                 std::cout << v << " ";
                             }
                             std::cout << std::endl;
-                            std::cout << "col_idx: " << std::endl;
-                            for(auto v : col_idx){
+                            std::cout << "row_idx: " << std::endl;
+                            for(auto v : row_idx){
                                 std::cout << v << " ";
                             }
                             std::cout << std::endl;
-                            std::cout << "row_idx: " << std::endl;
-                            for(auto v : row_idx){
+                            std::cout << "col_idx: " << std::endl;
+                            for(auto v : col_idx){
                                 std::cout << v << " ";
                             }
                             std::cout << std::endl;
@@ -215,15 +215,15 @@ namespace algebra{
 
     template<typename T> void Matrix<std::complex<T>,Col>::uncompress(){
         if(is_compressed()){
-            int j=0;//row index for the matrix
+            int j=0;//column index for the matrix
             int i=0; //index for the vector of values
             int nnz_count = 0; //counts the non-zero elements currently inserted in the matrix
             while(i<val.size()){
-                if(nnz_count >= row_idx[j+1]){ //if a row is filled, move to the next row
+                if(nnz_count >= col_idx[j+1]){ //if a column is filled, move to the next column
                     j++; 
                 }
-                else{ //otherwise, fill the row
-                    this->operator()(j,col_idx[i]) = val[i];
+                else{ //otherwise, fill the column
+                    this->operator()(row_idx[i],j) = val[i];
                     nnz_count++;
                     i++;
                 }
@@ -241,22 +241,22 @@ namespace algebra{
         std::vector<std::complex<T>> result;
         result.resize(lhs.num_row);
         if(!lhs.is_compressed()){
-            for(std::size_t i = 0; i<lhs.num_row; ++i){
-                for(std::size_t j = 0; j<lhs.num_col; ++j){
-                    result[i] += lhs(i,j)*rhs[j];   
+            for(std::size_t i = 0; i<lhs.num_col; ++i){
+                for(std::size_t j = 0; j<lhs.num_row; ++j){
+                    result[j] += lhs(j,i)*rhs[i];   
                 }
-            } 
+            }
         }
         else{
-            int j=0;//row index for the matrix
+            int j=0;//column index for the matrix
             int i=0; //index for the vector of values
             int nnz_count = 0; //counts the non-zero elements currently inserted in the matrix
             while(i<lhs.val.size()){
-                if(nnz_count >= lhs.row_idx[j+1]){ //if a row is filled, move to the next row
+                if(nnz_count >= lhs.col_idx[j+1]){ //if a column is filled, move to the next column
                     j++; 
                 }
                 else{ //otherwise, fill the row
-                    result[j]+=lhs.val[i]*rhs[lhs.col_idx[i]];
+                    result[lhs.row_idx[i]]+=lhs.val[i]*rhs[j];
                     nnz_count++;
                     i++;
                 }
@@ -282,7 +282,6 @@ namespace algebra{
                 if(line[0]!='%'){ //skips initial comments
                     startFlag = true; //signals start of the data
                     std::istringstream line_stream(line);
-                    std::array<std::size_t,2> dims; //read the dimensions from the first line with numbers
                     //read the dimensions from the first line with numbers
                     line_stream >> i;
                     line_stream >> j;

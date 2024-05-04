@@ -26,9 +26,9 @@ namespace algebra{
         /// @brief Container for the elements of the uncompressed Matrix, in COOmap form
         std::map<key,T,cmpCol> data;
         /// @brief Number of rows of the matrix
-        std::size_t num_row;
+        std::size_t num_row = 0;
         /// @brief Number of columns of the matrix
-        std::size_t num_col;
+        std::size_t num_col = 0;
 
         /// @brief Vector containing the non-zero elements of the compressed Matrix
         std::vector<T> val;
@@ -48,26 +48,26 @@ namespace algebra{
         Matrix() = default;
 
         /// @brief Read-Write access to an element of the Matrix, resizing if inserting out-of-bounds
-        /// @param i row index
-        /// @param j column index
-        /// @return Reference to element contained in the (i,j) cell of the matrix
+        /// @param i Row index
+        /// @param j Column index
+        /// @return Reference to the element contained in the (i,j) cell of the Matrix
         T& operator()(std::size_t i, std::size_t j);
 
         /// @brief Read-only access to an element of the Matrix
         /// @param i row index
         /// @param j column index
-        /// @return Const reference to element contained in the (i,j) cell of the matrix
+        /// @return Const reference to element contained in the (i,j) cell of the Matrix
         T operator()(std::size_t i, std::size_t j) const;
 
         /// @brief Resizes a Matrix, eventually deleting out-of-bounds non-zero elements
-        /// @param new_row_num new number of rows 
-        /// @param new_col_num new number of columns
+        /// @param new_row_num New number of rows 
+        /// @param new_col_num New number of columns
         void resize(std::size_t new_row_num, std::size_t new_col_num);
 
-        /// @brief Compresses an uncompressed Matrix in CSC form, removing the uncompressed data from memory
+        /// @brief Compresses an uncompressed Matrix in CSC form, removing the uncompressed Matrix from memory
         void compress();
         
-        /// @brief Uncompresses a Matrix compressed in CSC form, removing the compressed data from memory
+        /// @brief Uncompresses a Matrix compressed in CSC form, removing the compressed Matrix from memory
         void uncompress();
 
         /// @brief Checks if the Matrix is in the compressed state or not
@@ -76,7 +76,7 @@ namespace algebra{
 
         /// @brief Outputs the structure to the Matrix in the input stream, with different outputs depending on the compression status
         /// @param str stream to manipulate
-        /// @param mat matrix to output
+        /// @param mat Matrix to output
         /// @return output stream
         friend std::ostream& operator<< <>(std::ostream& str, const Matrix<T,Col>& mat);
 
@@ -87,7 +87,7 @@ namespace algebra{
         friend std::vector<T> operator* <>(const Matrix<T,Col>& lhs, const std::vector<T>& rhs);
 
         /// @brief Clears an existing Matrix and fills it with the contents of a text file encoded in Matrix-Market format
-        /// @param filename name of the file from which to read 
+        /// @param filename name of the file from which to read, positioned in the executable's directory  
         void read(std::string filename);
 
     };

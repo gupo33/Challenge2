@@ -1,8 +1,9 @@
 #include "MatrixRow.hpp"
 #include <complex>
 
-/// @file MatrixRow.hpp
-/// @brief Contains the specialization of Matrix for a row-major matrix
+/// @file MatrixRowCmpx.hpp
+/// @brief Contains the specialization of Matrix for a row-major matrix, containing complex numbers
+
 
 namespace algebra{
 
@@ -11,8 +12,8 @@ namespace algebra{
     template <typename T> std::vector<std::complex<T>> operator*(const Matrix<std::complex<T>,Row>& lhs, const std::vector<std::complex<T>>& rhs);
     template <typename T> std::ostream& operator<<(std::ostream& str, const Matrix<std::complex<T>,Row>& mat);
 
-    /// @brief Template row-major Matrix class encoded in COOmap form, and compressible in CSR form
-    /// @tparam T type of the elements of the Matrix
+    /// @brief Template row-major Matrix class encoded in COOmap form, compressible in CSR form, containing complex numbers
+    /// @tparam T type of the complex numbers contained in the Matrix
     template <typename T> class Matrix<std::complex<T>,Row>{ 
     private:
         /// @brief Container for the elements of the uncompressed Matrix, in COOmap form
@@ -283,7 +284,6 @@ namespace algebra{
                 if(line[0]!='%'){ //skips initial comments
                     startFlag = true; //signals start of the data
                     std::istringstream line_stream(line);
-                    std::array<std::size_t,2> dims; //read the dimensions from the first line with numbers
                     //read the dimensions from the first line with numbers
                     line_stream >> i;
                     line_stream >> j;
