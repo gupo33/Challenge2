@@ -269,7 +269,7 @@ namespace algebra{
 
         this->data.clear(); //clears what was contained previously in the matrix
 
-        std::ifstream file{filename}; //file stream
+        std::ifstream file{filename}; //opens file stream
         std::string line; //contains each parsed line
         bool startFlag = false; //checks if the matrix data has been reached yet
         std::size_t i,j;

@@ -7,7 +7,6 @@ namespace algebra{
 
     //pre-declarations needed for template friends
 
-    template <typename T> class Matrix<T,Col>;
     template <typename T> std::vector<T> operator*(const Matrix<T,Col>& lhs, const std::vector<T>& rhs);
     template <typename T> std::ostream& operator<<(std::ostream& str, const Matrix<T,Col>& mat);
 
@@ -25,9 +24,9 @@ namespace algebra{
     private:
         /// @brief Container for the elements of the uncompressed Matrix, in COOmap form
         std::map<key,T,cmpCol> data;
-        /// @brief Number of rows of the matrix
+        /// @brief Number of rows of the Matrix
         std::size_t num_row = 0;
-        /// @brief Number of columns of the matrix
+        /// @brief Number of columns of the Matrix
         std::size_t num_col = 0;
 
         /// @brief Vector containing the non-zero elements of the compressed Matrix

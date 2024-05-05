@@ -30,8 +30,8 @@ namespace algebra{
 
     public:
         /// @brief Generates a Matrix with num_row * num_col size elements
-        /// @param num_row Number of rows of the matrix
-        /// @param num_col Number of columns of the matrix
+        /// @param num_row Number of rows of the Matrix
+        /// @param num_col Number of columns of the Matrix
         Matrix(std::size_t num_row, std::size_t num_col):num_row(num_row),num_col(num_col){};
         
         /// @brief Default constructor generating an empty Matrix
@@ -54,10 +54,10 @@ namespace algebra{
         /// @param new_col_num New number of columns
         void resize(std::size_t new_row_num, std::size_t new_col_num);
 
-        /// @brief Compresses an uncompressed Matrix in CSR form, removing the uncompressed matrix from memory
+        /// @brief Compresses an uncompressed Matrix in CSR form, removing the uncompressed Matrix from memory
         void compress();
 
-        /// @brief Uncompresses a Matrix compressed in CSR form, removing the compressed matrix from memory
+        /// @brief Uncompresses a Matrix compressed in CSR form, removing the compressed Matrix from memory
         void uncompress();
  
         /// @brief Checks if the Matrix is in the compressed state or not
@@ -282,7 +282,6 @@ namespace algebra{
                 if(line[0]!='%'){ //skips initial comments
                     startFlag = true; //signals start of the data
                     std::istringstream line_stream(line);
-                    std::array<std::size_t,2> dims; //read the dimensions from the first line with numbers
                     //read the dimensions from the first line with numbers
                     line_stream >> i;
                     line_stream >> j;

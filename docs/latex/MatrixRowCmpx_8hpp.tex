@@ -1,0 +1,67 @@
+\hypertarget{MatrixRowCmpx_8hpp}{}\doxysection{/home/azureuser/project/\+Challenge2/include/\+Matrix\+Row\+Cmpx.hpp File Reference}
+\label{MatrixRowCmpx_8hpp}\index{/home/azureuser/project/Challenge2/include/MatrixRowCmpx.hpp@{/home/azureuser/project/Challenge2/include/MatrixRowCmpx.hpp}}
+
+
+Contains the specialization of Matrix for a row-\/major matrix, containing complex numbers.  
+
+
+{\ttfamily \#include \char`\"{}Matrix\+Row.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$complex$>$}\newline
+Include dependency graph for Matrix\+Row\+Cmpx.\+hpp\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Row_01_4}{algebra\+::\+Matrix$<$ std\+::complex$<$ T $>$, Row $>$}}
+\begin{DoxyCompactList}\small\item\em Template row-\/major \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} class encoded in COOmap form, compressible in CSR form, containing complex numbers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ std\+::complex$<$ T $>$ $>$ \mbox{\hyperlink{MatrixRowCmpx_8hpp_a1d9f48d84c7753a6d9f7bfcf6d264819}{algebra\+::operator$\ast$}} (const Matrix$<$ std\+::complex$<$ T $>$, Row $>$ \&lhs, const std\+::vector$<$ std\+::complex$<$ T $>$$>$ \&rhs)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \mbox{\hyperlink{MatrixRowCmpx_8hpp_ad7e2bd764e419f9f1e36fabfa3da09bf}{algebra\+::operator$<$$<$}} (std\+::ostream \&str, const Matrix$<$ std\+::complex$<$ T $>$, Row $>$ \&mat)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains the specialization of Matrix for a row-\/major matrix, containing complex numbers. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{MatrixRowCmpx_8hpp_a1d9f48d84c7753a6d9f7bfcf6d264819}\label{MatrixRowCmpx_8hpp_a1d9f48d84c7753a6d9f7bfcf6d264819}} 
+\index{MatrixRowCmpx.hpp@{MatrixRowCmpx.hpp}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!MatrixRowCmpx.hpp@{MatrixRowCmpx.hpp}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::vector$<$ std\+::complex$<$ T $>$ $>$ algebra\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}$<$ std\+::complex$<$ T $>$, Row $>$ \&}]{lhs,  }\item[{const std\+::vector$<$ std\+::complex$<$ T $>$$>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & Left hand side of the operation \\
+\hline
+{\em rhs} & Right hand side of the operation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+result vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{MatrixRowCmpx_8hpp_ad7e2bd764e419f9f1e36fabfa3da09bf}\label{MatrixRowCmpx_8hpp_ad7e2bd764e419f9f1e36fabfa3da09bf}} 
+\index{MatrixRowCmpx.hpp@{MatrixRowCmpx.hpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!MatrixRowCmpx.hpp@{MatrixRowCmpx.hpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::ostream \& algebra\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{str,  }\item[{const \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}$<$ std\+::complex$<$ T $>$, Row $>$ \&}]{mat }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & stream to manipulate \\
+\hline
+{\em mat} & Matrix to output \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+output stream 
+\end{DoxyReturn}

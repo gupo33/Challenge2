@@ -1,0 +1,221 @@
+\hypertarget{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Col_01_4}{}\doxysection{algebra\+::Matrix$<$ std\+::complex$<$ T $>$, Col $>$ Class Template Reference}
+\label{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Col_01_4}\index{algebra::Matrix$<$ std::complex$<$ T $>$, Col $>$@{algebra::Matrix$<$ std::complex$<$ T $>$, Col $>$}}
+
+
+Template column-\/major \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} class encoded in COOmap form, and compressible in CSC form, containing complex numbers.  
+
+
+
+
+{\ttfamily \#include $<$Matrix\+Col\+Cmpx.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Col_01_4_a14914d6af7f6090f997b603bd5fec96f}{Matrix}} (std\+::size\+\_\+t num\+\_\+row, std\+::size\+\_\+t num\+\_\+col)
+\begin{DoxyCompactList}\small\item\em Generates a \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} with num\+\_\+row $\ast$ num\+\_\+col size elements. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Col_01_4_ac085c9c4e7e728d1c6e2c6a18ecd439b}\label{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Col_01_4_ac085c9c4e7e728d1c6e2c6a18ecd439b}} 
+\mbox{\hyperlink{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Col_01_4_ac085c9c4e7e728d1c6e2c6a18ecd439b}{Matrix}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor generating an empty \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}. \end{DoxyCompactList}\item 
+std\+::complex$<$ T $>$ \& \mbox{\hyperlink{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Col_01_4_aa59432bfb08b3f948baebdba0c6ef2fe}{operator()}} (std\+::size\+\_\+t i, std\+::size\+\_\+t j)
+\begin{DoxyCompactList}\small\item\em Read-\/\+Write access to an element of the \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}, resizing if inserting out-\/of-\/bounds. \end{DoxyCompactList}\item 
+std\+::complex$<$ T $>$ \mbox{\hyperlink{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Col_01_4_afe45a00858ff0a6766718bce0e01420e}{operator()}} (std\+::size\+\_\+t i, std\+::size\+\_\+t j) const
+\begin{DoxyCompactList}\small\item\em Read-\/only access to an element of the \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Col_01_4_a16a3f66b94f629cf57a6e4ee01deb9a2}{resize}} (std\+::size\+\_\+t new\+\_\+row\+\_\+num, std\+::size\+\_\+t new\+\_\+col\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Resizes a \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}, eventually deleting out-\/of-\/bounds non-\/zero elements. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Col_01_4_a92383d123530415ee5309fcc8a86ccea}\label{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Col_01_4_a92383d123530415ee5309fcc8a86ccea}} 
+void \mbox{\hyperlink{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Col_01_4_a92383d123530415ee5309fcc8a86ccea}{compress}} ()
+\begin{DoxyCompactList}\small\item\em Compresses an uncompressed \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} in CSC form, removing the uncompressed \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} from memory. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Col_01_4_a861328ba53e51b6bc3e6f858be22eb65}\label{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Col_01_4_a861328ba53e51b6bc3e6f858be22eb65}} 
+void \mbox{\hyperlink{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Col_01_4_a861328ba53e51b6bc3e6f858be22eb65}{uncompress}} ()
+\begin{DoxyCompactList}\small\item\em Uncompresses a \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} compressed in CSC form, removing the compressed \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} from memory. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Col_01_4_a6ed616ffd896e1b364a1a3bb2415eb9d}{is\+\_\+compressed}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} is in the compressed state or not. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Col_01_4_a12d0874671e796783e390040b1fc08b7}{read}} (std\+::string filename)
+\begin{DoxyCompactList}\small\item\em Clears an existing \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} and fills it with the contents of a text file encoded in Matrix-\/\+Market format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Col_01_4_a38ae17ca512ecefb43485111dc9cf7e6}{operator$<$$<$}} (std\+::ostream \&str, const \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}$<$ std\+::complex$<$ T $>$, Col $>$ \&mat)
+\begin{DoxyCompactList}\small\item\em Outputs the structure to the \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} in the input stream, with different outputs depending on the compression status. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::complex$<$ T $>$ $>$ \mbox{\hyperlink{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Col_01_4_a9a3664d72798c67793eb294030bcbc59}{operator$\ast$}} (const \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}$<$ std\+::complex$<$ T $>$, Col $>$ \&lhs, const std\+::vector$<$ std\+::complex$<$ T $>$$>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Performs Matrix-\/vector product between two correctly-\/dimensioned containers of the same type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class algebra\+::\+Matrix$<$ std\+::complex$<$ T $>$, Col $>$}
+
+Template column-\/major \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} class encoded in COOmap form, and compressible in CSC form, containing complex numbers. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type of the complex numbers contained in the \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Col_01_4_a14914d6af7f6090f997b603bd5fec96f}\label{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Col_01_4_a14914d6af7f6090f997b603bd5fec96f}} 
+\index{algebra::Matrix$<$ std::complex$<$ T $>$, Col $>$@{algebra::Matrix$<$ std::complex$<$ T $>$, Col $>$}!Matrix@{Matrix}}
+\index{Matrix@{Matrix}!algebra::Matrix$<$ std::complex$<$ T $>$, Col $>$@{algebra::Matrix$<$ std::complex$<$ T $>$, Col $>$}}
+\doxysubsubsection{\texorpdfstring{Matrix()}{Matrix()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ std\+::complex$<$ T $>$, Col $>$\+::\mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{num\+\_\+row,  }\item[{std\+::size\+\_\+t}]{num\+\_\+col }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generates a \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} with num\+\_\+row $\ast$ num\+\_\+col size elements. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+\_\+row} & Number of rows of the \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} \\
+\hline
+{\em num\+\_\+col} & Number of columns of the \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Col_01_4_a6ed616ffd896e1b364a1a3bb2415eb9d}\label{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Col_01_4_a6ed616ffd896e1b364a1a3bb2415eb9d}} 
+\index{algebra::Matrix$<$ std::complex$<$ T $>$, Col $>$@{algebra::Matrix$<$ std::complex$<$ T $>$, Col $>$}!is\_compressed@{is\_compressed}}
+\index{is\_compressed@{is\_compressed}!algebra::Matrix$<$ std::complex$<$ T $>$, Col $>$@{algebra::Matrix$<$ std::complex$<$ T $>$, Col $>$}}
+\doxysubsubsection{\texorpdfstring{is\_compressed()}{is\_compressed()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ std\+::complex$<$ T $>$, Col $>$\+::is\+\_\+compressed}
+
+
+
+Checks if the \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} is in the compressed state or not. 
+
+\begin{DoxyReturn}{Returns}
+Bool indicating the compression status\+: true if compressed, false otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Col_01_4_aa59432bfb08b3f948baebdba0c6ef2fe}\label{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Col_01_4_aa59432bfb08b3f948baebdba0c6ef2fe}} 
+\index{algebra::Matrix$<$ std::complex$<$ T $>$, Col $>$@{algebra::Matrix$<$ std::complex$<$ T $>$, Col $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!algebra::Matrix$<$ std::complex$<$ T $>$, Col $>$@{algebra::Matrix$<$ std::complex$<$ T $>$, Col $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::complex$<$ T $>$ \& \mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ std\+::complex$<$ T $>$, Col $>$\+::operator() (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i,  }\item[{std\+::size\+\_\+t}]{j }\end{DoxyParamCaption})}
+
+
+
+Read-\/\+Write access to an element of the \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}, resizing if inserting out-\/of-\/bounds. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Row index \\
+\hline
+{\em j} & Column index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to the element contained in the (i,j) cell of the \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Col_01_4_afe45a00858ff0a6766718bce0e01420e}\label{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Col_01_4_afe45a00858ff0a6766718bce0e01420e}} 
+\index{algebra::Matrix$<$ std::complex$<$ T $>$, Col $>$@{algebra::Matrix$<$ std::complex$<$ T $>$, Col $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!algebra::Matrix$<$ std::complex$<$ T $>$, Col $>$@{algebra::Matrix$<$ std::complex$<$ T $>$, Col $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::complex$<$ T $>$ \mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ std\+::complex$<$ T $>$, Col $>$\+::operator() (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i,  }\item[{std\+::size\+\_\+t}]{j }\end{DoxyParamCaption}) const}
+
+
+
+Read-\/only access to an element of the \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & row index \\
+\hline
+{\em j} & column index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Const reference to element contained in the (i,j) cell of the \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Col_01_4_a12d0874671e796783e390040b1fc08b7}\label{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Col_01_4_a12d0874671e796783e390040b1fc08b7}} 
+\index{algebra::Matrix$<$ std::complex$<$ T $>$, Col $>$@{algebra::Matrix$<$ std::complex$<$ T $>$, Col $>$}!read@{read}}
+\index{read@{read}!algebra::Matrix$<$ std::complex$<$ T $>$, Col $>$@{algebra::Matrix$<$ std::complex$<$ T $>$, Col $>$}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ std\+::complex$<$ T $>$, Col $>$\+::read (\begin{DoxyParamCaption}\item[{std\+::string}]{filename }\end{DoxyParamCaption})}
+
+
+
+Clears an existing \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} and fills it with the contents of a text file encoded in Matrix-\/\+Market format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & name of the file from which to read, positioned in the executable\textquotesingle{}s directory ~\newline
+ \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Col_01_4_a16a3f66b94f629cf57a6e4ee01deb9a2}\label{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Col_01_4_a16a3f66b94f629cf57a6e4ee01deb9a2}} 
+\index{algebra::Matrix$<$ std::complex$<$ T $>$, Col $>$@{algebra::Matrix$<$ std::complex$<$ T $>$, Col $>$}!resize@{resize}}
+\index{resize@{resize}!algebra::Matrix$<$ std::complex$<$ T $>$, Col $>$@{algebra::Matrix$<$ std::complex$<$ T $>$, Col $>$}}
+\doxysubsubsection{\texorpdfstring{resize()}{resize()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classalgebra_1_1Matrix}{algebra\+::\+Matrix}}$<$ std\+::complex$<$ T $>$, Col $>$\+::resize (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{new\+\_\+row\+\_\+num,  }\item[{std\+::size\+\_\+t}]{new\+\_\+col\+\_\+num }\end{DoxyParamCaption})}
+
+
+
+Resizes a \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}, eventually deleting out-\/of-\/bounds non-\/zero elements. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+row\+\_\+num} & New number of rows \\
+\hline
+{\em new\+\_\+col\+\_\+num} & New number of columns \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Col_01_4_a9a3664d72798c67793eb294030bcbc59}\label{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Col_01_4_a9a3664d72798c67793eb294030bcbc59}} 
+\index{algebra::Matrix$<$ std::complex$<$ T $>$, Col $>$@{algebra::Matrix$<$ std::complex$<$ T $>$, Col $>$}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!algebra::Matrix$<$ std::complex$<$ T $>$, Col $>$@{algebra::Matrix$<$ std::complex$<$ T $>$, Col $>$}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$}{operator*}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::vector$<$std\+::complex$<$T$>$ $>$ operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}$<$ std\+::complex$<$ T $>$, Col $>$ \&}]{lhs,  }\item[{const std\+::vector$<$ std\+::complex$<$ T $>$$>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Performs Matrix-\/vector product between two correctly-\/dimensioned containers of the same type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & Left hand side of the operation \\
+\hline
+{\em rhs} & Right hand side of the operation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+result vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Col_01_4_a38ae17ca512ecefb43485111dc9cf7e6}\label{classalgebra_1_1Matrix_3_01std_1_1complex_3_01T_01_4_00_01Col_01_4_a38ae17ca512ecefb43485111dc9cf7e6}} 
+\index{algebra::Matrix$<$ std::complex$<$ T $>$, Col $>$@{algebra::Matrix$<$ std::complex$<$ T $>$, Col $>$}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!algebra::Matrix$<$ std::complex$<$ T $>$, Col $>$@{algebra::Matrix$<$ std::complex$<$ T $>$, Col $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{str,  }\item[{const \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}}$<$ std\+::complex$<$ T $>$, Col $>$ \&}]{mat }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Outputs the structure to the \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} in the input stream, with different outputs depending on the compression status. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & stream to manipulate \\
+\hline
+{\em mat} & \mbox{\hyperlink{classalgebra_1_1Matrix}{Matrix}} to output \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+output stream 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/azureuser/project/\+Challenge2/include/\mbox{\hyperlink{MatrixColCmpx_8hpp}{Matrix\+Col\+Cmpx.\+hpp}}\end{DoxyCompactItemize}
