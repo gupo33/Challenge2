@@ -13,3 +13,7 @@ This repository contains a library built to handle sparse elements with generic 
 make release 
 ``` 
 Generates the main file to be ran, requiring the name of the file from which to read the matrix when called.
+
+## Issues
+
+`operator*` requires the vector and the matrix to be of the same type: copying is needed when dealing with containers of different type.
