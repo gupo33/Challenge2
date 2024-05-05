@@ -6,7 +6,7 @@ This repository contains a library built to handle sparse elements with generic 
 ## Contents
 
 - The `include` folder contains the header files with the implementation.
-- `main.cpp` contains an example main that handles reading a matrix from a provided file and performing matrix-vector product with a correctly-dimensioned vector, while checking the performance differences between the compressed and uncompressed matrices
+- `main.cpp` contains an example main that handles reading a matrix from a provided file and performing matrix-vector product with a correctly-dimensioned vector, while checking the performance differences between the compressed and uncompressed matrices.
 ## Compilation instructions
 
 ```bash 
