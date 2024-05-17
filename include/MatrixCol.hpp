@@ -1,8 +1,11 @@
 #include "MatrixRowCmpx.hpp"
-
+// clang-format off
 /// @file MatrixCol.hpp
 /// @brief Contains the specialization of Matrix for a column-major matrix
 
+//@note Making specialization of the matrix class is fine but also an overduing! 
+// you can just specialize methods and/or use if constexpr to make your code more compact and maintainable 
+// doing specialization at class tempalte level obiges you of repeating a lot of stuff 
 namespace algebra{
 
     //pre-declarations needed for template friends
@@ -12,6 +15,12 @@ namespace algebra{
 
     //Custom comparator used in the data map to implement column-major ordering
     struct cmpCol{
+
+//@note it is perfectly ok, but sometimes one may rely on algorithms already implemented in the standard library,
+// for instance, using std::tie to compare tuples of values:
+// return std::tie(lhs[1], lhs[0]) < std::tie(rhs[1], rhs[0]);
+// It is also shorter!
+
         bool operator()(const key& lhs, const key& rhs) const{
             return(lhs[1] < rhs[1] || (lhs[1] == rhs[1] && lhs[0] < rhs[0]));
         }
@@ -93,6 +102,7 @@ namespace algebra{
 
     template<typename T> T& Matrix<T,Col>::operator()(std::size_t i, std::size_t j){
         auto it = data.find({i,j});
+        //@note but what is the matrix is compressed?
         if(it!=data.end()){
             return it->second;
         }
@@ -101,11 +111,14 @@ namespace algebra{
                 resize(std::max(num_row,i+1),std::max(num_col,j+1));
             }
             return data[{i,j}];
+            //@note you are assuming the the value is initialised by zero, but it is not guaranteed by the standard
+            // you should use data[{i,j}] = T{0}; instead
         }
     }
 
     template<typename T> T Matrix<T,Col>::operator()(std::size_t i, std::size_t j) const{
         auto it = data.find({i,j});
+        //@note but what is the matrix is compressed?
         if(it!=data.end()){
             return it->second;
         }
@@ -115,8 +128,11 @@ namespace algebra{
     }
 
     template<typename T> std::ostream& operator<<(std::ostream& str, const Matrix<T,Col>& mat){
+        //@note Normally sparse matrices are printed as
+        // i,j,value
+        
         if(!mat.is_compressed()){
-            for(std::size_t i = 0; i<mat.num_row;++i){
+              for(std::size_t i = 0; i<mat.num_row;++i){
                 for(std::size_t j = 0; j<mat.num_col;++j){
                     str << mat(i,j) << " ";
                 }
@@ -157,6 +173,8 @@ namespace algebra{
                         #ifdef DEBUG
                             std::cout << "erased element in position" << elem->first[0] << "," << elem->first[1] << std::endl;
                         #endif
+                        //@note Danger here!! After you erase an elements iterators are invalidated!
+                        // It should work becouse things are done correctly here.
                         data.erase(elem++); //remove the element pointed by elem and move to the next one to keep the pointer valid
                     }
                     else{
@@ -164,6 +182,7 @@ namespace algebra{
                     }
                 }
             }
+        //@note what happens if compressed?
             num_row = new_row_num;
             num_col = new_col_num;
             #ifdef DEBUG
@@ -178,7 +197,7 @@ namespace algebra{
         #endif
 
         //initialize vectors
-        col_idx.resize(num_col+1);
+        col_idx.resize(num_col+1); //@note This should be moved after the if!
 
         if(!is_compressed()){
            for(std::size_t i = 0; i<num_col;++i){
@@ -187,7 +206,7 @@ namespace algebra{
 
                 for(auto elem = data.lower_bound({0,i}); elem!= data.upper_bound({num_row,i}); ++elem){
                     if(elem->second!=0){
-                        val.push_back(elem->second);
+                        val.push_back(elem->second); //@note prefere emplace_back
                         row_idx.push_back(elem->first[0]);
                         col_idx[i+1]++;
                         #ifdef DEBUG
@@ -260,6 +279,9 @@ namespace algebra{
             int j=0;//column index for the matrix
             int i=0; //index for the vector of values
             int nnz_count = 0; //counts the non-zero elements currently inserted in the matrix
+            //@note very complicated way to iterate over the compressed matrix
+            // you have to loop over the outer and then inner indexes. Muche simpler and
+            // more efficient.
             while(i<lhs.val.size()){
                 if(nnz_count >= lhs.col_idx[j+1]){ //if a column is filled, move to the next column
                     j++; 

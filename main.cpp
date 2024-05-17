@@ -1,5 +1,8 @@
+//@note you normally indicate the include directories in the compiler option not
+// in the code
 #include "include/MatrixColCmpx.hpp"
 #include <chrono>
+// clang-format off
 
 using namespace algebra;
 
@@ -9,7 +12,9 @@ int main(int argc, const char* argv[]){
     Matrix<double,Row> mat;
 
     //read matrix from file
-
+//@note dont do like that. Use getpot to parse the command line arguments
+// and print a help for the -h option. Otherwise the users does not know what to do.
+// Also becouse you have not written how to launch the code in the README.md file!
     mat.read(argv[1]);
 
     //create a right hand side
